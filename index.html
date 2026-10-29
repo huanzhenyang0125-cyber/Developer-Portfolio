@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人工程与 Web 产品作品集 · Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0B0F17;
+      color: #F3F4F6;
+    }
+    .glass-card {
+      background: rgba(22, 27, 38, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="min-h-screen selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
+  <!-- Header / Hero -->
+  <header class="max-w-6xl mx-auto px-6 pt-16 pb-12 w-full text-center md:text-left">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-gray-800">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-semibold uppercase tracking-wider mb-4">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 全栈与产品研发作品集
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
+          Engineering & Product Portfolio
+        </h1>
+        <p class="text-gray-400 text-lg max-w-2xl leading-relaxed">
+          收录 4 款高完成度独立研发项目，涵盖金融科技资产终端、高校科研服务平台、工业级高对比度门户及本地优先 PWA 健康操作系统。
+        </p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/huanzhenyang0125-cyber/Developer-Portfolio" target="_blank" class="px-5 py-2.5 rounded-xl bg-white text-gray-950 font-bold hover:bg-gray-100 transition shadow-lg text-sm inline-flex items-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          查看 GitHub 源码
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Project Grid -->
+  <main class="max-w-6xl mx-auto px-6 py-8 w-full flex-1">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Project 01 -->
+      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge bg-blue-500/10 text-blue-400 border border-blue-500/20">01 · 金融科技</span>
+            <span class="text-xs text-gray-400 font-mono">Apple HIG 规范</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-2">极简财富 Pro (Wealth Pro)</h2>
+          <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+            专为个人与投资人打造的私行资产管理终端。原生 Canvas 交互式双环盈亏圆盘、自然语言记账（NLP Ledger）、多币种汇率折算与 iMessage 对话式 AI 财务顾问。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Canvas API</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Apple HIG</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">NLP 智能流水</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Single-File 离线</span>
+          </div>
+        </div>
+        <a href="./01_极简财富Pro_Apple私行财务管理终端/index.html" class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-center transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-blue-600/20">
+          <span>进入极简财富 Pro</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <!-- Project 02 -->
+      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge bg-purple-500/10 text-purple-400 border border-purple-500/20">02 · 科研系统</span>
+            <span class="text-xs text-gray-400 font-mono">物理隔离双端</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-2">学术文献智能代查跑腿系统</h2>
+          <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+            面向高校毕业季与科研人员的文献代查平台。客户前台与站长管理后台物理隔离，内置 DOI/年份/SCI 等级的动态阶梯计价引擎与激活码扫码核销闭环。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Tailwind CSS</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">阶梯价格核算</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">扫码核销闭环</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">双端独立架构</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <a href="./02_学术文献智能代查跑腿系统/academic-client-singlefile.html" class="py-3 px-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-center transition text-sm">
+            客户前台
+          </a>
+          <a href="./02_学术文献智能代查跑腿系统/academic-admin-singlefile.html" class="py-3 px-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-purple-300 font-semibold text-center transition text-sm border border-purple-500/20">
+            站长管理后台
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 03 -->
+      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge bg-amber-500/10 text-amber-400 border border-amber-500/20">03 · 工业门户</span>
+            <span class="text-xs text-gray-400 font-mono">外贸数字化</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-2">Honest Tools 奥尼斯工业门户</h2>
+          <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+            现代工业级高清晰度产品图册与智能询价门户。20 大核心工业系列产品矩阵、通栏卡片展开与循环切换、全球多国选品地图与即时意向购物车。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Next.js</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">工业高对比度</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">全球选品矩阵</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">动态询价工单</span>
+          </div>
+        </div>
+        <a href="./03_奥尼斯工具_工业产品展示与询价门户/index.html" class="w-full py-3 px-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-center transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-amber-600/20">
+          <span>浏览奥尼斯工业门户</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <!-- Project 04 -->
+      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between border-emerald-500/30">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">04 · 移动操作系统</span>
+            <span class="text-xs text-emerald-400 font-mono flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> PWA 离线运行
+            </span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-2">WHIP · 个人健康 OS (PWA)</h2>
+          <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+            基于 Codex 研发的本地优先个人健康系统。支持 iOS/Android 添加至主屏幕全屏运行；涵盖饮食配方、运动训练负重、睡眠与习惯打卡，IndexedDB 本地持久化保护隐私。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">React + TS</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">PWA / Service Worker</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">IndexedDB</span>
+            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Local-First</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <a href="./04_WHIP_个人健康OS_PWA/dist/index.html" class="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-center transition text-sm shadow-lg shadow-emerald-600/20">
+            打开本地 PWA
+          </a>
+          <a href="https://vital-personal-health-os-km22.huanzhenyang0125.chatgpt.site" target="_blank" class="py-3 px-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-emerald-300 font-semibold text-center transition text-sm border border-emerald-500/20 flex items-center justify-center gap-1">
+            <span>在线演示</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-6xl mx-auto px-6 py-10 w-full text-center text-gray-500 text-xs border-t border-gray-800/80">
+    <p>© 2026 Developer Portfolio · All Rights Reserved · Built with Antigravity</p>
+  </footer>
+</body>
+</html>
