@@ -1,0 +1,17 @@
+{
+  "type": "result",
+  "result": [
+    {
+      "score": 0.8815969824790955,
+      "label": "a plate of Chinese egg fried rice with shrimp and vegetables"
+    },
+    {
+      "score": 0.11592967063188553,
+      "label": "a plate of char kway teow stir fried flat rice noodles"
+    },
+    {
+      "score": 0.002473335713148117,
+      "label": "a photograph of a non-food object"
+    }
+  ]
+}

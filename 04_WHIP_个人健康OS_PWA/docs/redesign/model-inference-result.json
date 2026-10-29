@@ -1,0 +1,65 @@
+{
+  "type": "result",
+  "result": [
+    {
+      "score": 0.2971193492412567,
+      "label": "a plate of Chinese egg fried rice with shrimp and vegetables"
+    },
+    {
+      "score": 0.21538828313350677,
+      "label": "a plate of pineapple chicken fried rice"
+    },
+    {
+      "score": 0.20760242640972137,
+      "label": "a plate of fried instant noodles with egg and luncheon meat"
+    },
+    {
+      "score": 0.09980746358633041,
+      "label": "a plate of fried rice vermicelli thin noodles"
+    },
+    {
+      "score": 0.07320436090230942,
+      "label": "a plate of Chinese barbecue char siu pork with rice"
+    },
+    {
+      "score": 0.047985706478357315,
+      "label": "a plate of stir fried instant noodles with pork chop"
+    },
+    {
+      "score": 0.0360945425927639,
+      "label": "a plate of char kway teow stir fried flat rice noodles"
+    },
+    {
+      "score": 0.011282514780759811,
+      "label": "a plate of soy sauce stir fried thin wheat noodles"
+    },
+    {
+      "score": 0.007678056601434946,
+      "label": "a plate of stir fried udon noodles with seafood"
+    },
+    {
+      "score": 0.0023665456101298332,
+      "label": "a Chinese hot pot with broth meat vegetables and dipping sauces"
+    },
+    {
+      "score": 0.0009497455321252346,
+      "label": "a photograph of a non-food object"
+    },
+    {
+      "score": 0.0003857896663248539,
+      "label": "grilled chicken satay skewers on a plate"
+    },
+    {
+      "score": 0.00011185694893356413,
+      "label": "a barbecue platter of grilled meat skewers and vegetables"
+    },
+    {
+      "score": 0.000014444302905758377,
+      "label": "a photograph of a person"
+    },
+    {
+      "score": 0.000008901847650122363,
+      "label": "a photograph of a landscape"
+    }
+  ]
+}

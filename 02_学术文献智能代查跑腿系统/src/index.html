@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>文献人工代查 - 2小时内发邮箱 · 100%正版高清PDF原件</title>
+  <!-- Tailwind CSS & Lucide Icons (优先加载本地静态包，彻底解决国内网络CDN加载超时问题) -->
+  <script src="assets/tailwind.min.js"></script>
+  <script src="assets/lucide.min.js"></script>
+  <!-- 容灾备用 CDN -->
+  <script>
+    if (typeof tailwind === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"><\/script>');
+    }
+    if (typeof lucide === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"><\/script>');
+    }
+  </script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            apple: {
+              bg: '#F5F5F7',
+              card: 'rgba(255, 255, 255, 0.88)',
+              ink: '#1D1D1F',
+              sub: '#6E6E73',
+              border: 'rgba(0, 0, 0, 0.08)',
+              accent: '#0071E3',
+              hover: '#0077ED'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', '"PingFang SC"', '"Hiragino Sans GB"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            mono: ['"SF Mono"', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Apple 原生精致感与毛玻璃拟态规范 (Glassmorphism & Apple HIG) */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #F5F5F7;
+      color: #1D1D1F;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    .apple-glass {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+    .apple-glass-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.03);
+      transition: all 0.36s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    /* Apple 拟物理弹簧手感 (Spring Physics) */
+    .spring-press {
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.18s ease;
+    }
+    .spring-press:active {
+      transform: scale(0.972);
+      transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* 选项卡与卡片悬浮弹簧 */
+    .spring-card {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.25s ease;
+    }
+    .spring-card:hover {
+      transform: translateY(-1.5px);
+    }
+    .spring-card:active {
+      transform: scale(0.985);
+    }
+
+    /* 界面平滑弹簧入场动效 */
+    @keyframes appleSpringIn {
+      0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.985);
+      }
+      65% {
+        transform: translateY(-2px) scale(1.004);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .anim-spring-in {
+      animation: appleSpringIn 0.38s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    /* 胶囊滑动背景过渡 */
+    .spring-tab-transition {
+      transition: all 0.32s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-sans selection:bg-black selection:text-white pb-12">
+
+  <!-- 顶部导航 (品牌Logo与极简排版) -->
+  <header class="sticky top-0 z-30 bg-[#F5F5F7]/80 backdrop-blur-md border-b border-black/[0.05]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <!-- 品牌Logo与文字 -->
+      <div class="flex items-center space-x-2.5">
+        <img src="assets/logo.jpg" alt="Logo" class="w-8 h-8 rounded-lg object-cover border border-black/10 shadow-sm">
+        <div class="flex items-baseline space-x-2">
+          <span class="text-base font-bold tracking-tight text-apple-ink">AAA人工文献库</span>
+          <span class="text-xs text-apple-sub font-normal hidden sm:inline">已在工位 · 2小时内发邮箱</span>
+        </div>
+      </div>
+
+      <!-- 右侧辅助按钮 -->
+      <div class="flex items-center space-x-2 text-xs">
+        <button onclick="openContactModal()" class="px-3 py-1.5 rounded-full font-medium text-apple-ink hover:bg-black/[0.04] transition-colors flex items-center">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 mr-1 text-emerald-600"></i>
+          <span>微信客服</span>
+        </button>
+        <button onclick="scrollToTrack()" class="px-3 py-1.5 rounded-full font-medium text-apple-sub hover:text-apple-ink hover:bg-black/[0.04] transition-colors flex items-center">
+          <i data-lucide="search" class="w-3.5 h-3.5 mr-1"></i>
+          <span>查进度</span>
+        </button>
+        <button onclick="openShareModal()" class="px-3 py-1.5 rounded-full font-medium text-emerald-800 bg-emerald-500/10 hover:bg-emerald-500/15 transition-colors flex items-center">
+          <i data-lucide="gift" class="w-3.5 h-3.5 mr-1 text-emerald-600"></i>
+          <span>邀请免费再查1篇</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容 -->
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 pt-6 sm:pt-8 space-y-6">
+
+    <!-- 顶部状态与人情味公告 (字少、真诚、朴实) -->
+    <section class="apple-glass-card p-6 sm:p-7 relative overflow-hidden">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="max-w-xl space-y-3">
+          <div class="inline-flex items-center space-x-2 text-xs font-medium text-emerald-800 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>服务时间：每日 08:00 – 凌晨 01:00 在线</span>
+          </div>
+          
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-apple-ink">
+            AAA人工文献库 · 2小时内发邮箱
+          </h1>
+
+          <p class="text-sm text-apple-sub leading-relaxed font-normal">
+            已在工位，纯人工检索！啥都不赚，就赚点通宵整理文献的辛苦跑腿钱。100% 官方数据库正版高清 PDF，下不到全额退。
+          </p>
+
+          <!-- 极简活动标签 -->
+          <div class="pt-2 flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium">新客首篇免费试用</span>
+            <span class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium">邀请好友双方各免1篇</span>
+            <span class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium">承诺2小时内直达</span>
+          </div>
+        </div>
+
+        <!-- 专属 Logo 形象展示卡片 (已在工位·顶刊环绕卡皮巴拉) -->
+        <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-black/10 shadow-sm relative group bg-white">
+          <img src="assets/logo.jpg" alt="AAA人工文献库 Logo" class="w-full h-full object-cover">
+          <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm text-[10px] text-white text-center py-0.5 font-bold">
+            已在工位
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 权威学术数据库覆盖矩阵 (高校账号全权限 · 100% 正版高清原件) -->
+    <section class="apple-glass-card p-5 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-black/[0.05] pb-3">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+          <h2 class="text-xs font-bold uppercase tracking-wider text-apple-ink">高校图书馆账号覆盖数据库权限 (100% 官方原版直通)</h2>
+        </div>
+        <span class="text-[11px] font-medium text-emerald-700 bg-emerald-500/10 px-2 py-0.5 rounded-full flex items-center">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+          权限全部在线
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+        
+        <!-- 综合顶刊集群 -->
+        <div class="p-3 rounded-xl bg-black/[0.02] border border-black/[0.05] space-y-1.5 spring-card">
+          <div class="text-[11px] font-bold text-apple-sub flex items-center justify-between">
+            <span>综合三大顶刊及预印本</span>
+            <span class="text-[10px] text-emerald-600 font-mono">100%原件</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">Nature 全系子刊</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">Science (AAAS)</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">Cell Press</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">PNAS</span>
+          </div>
+        </div>
+
+        <!-- 理工与计算机集群 -->
+        <div class="p-3 rounded-xl bg-black/[0.02] border border-black/[0.05] space-y-1.5 spring-card">
+          <div class="text-[11px] font-bold text-apple-sub flex items-center justify-between">
+            <span>理工与计算机核心库</span>
+            <span class="text-[10px] text-emerald-600 font-mono">全库下载</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">IEEE Xplore</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">ScienceDirect (Elsevier)</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">SpringerLink</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">Wiley</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">ACM DL</span>
+          </div>
+        </div>
+
+        <!-- 生化环材与医学集群 -->
+        <div class="p-3 rounded-xl bg-black/[0.02] border border-black/[0.05] space-y-1.5 spring-card">
+          <div class="text-[11px] font-bold text-apple-sub flex items-center justify-between">
+            <span>生化环材与生物医学</span>
+            <span class="text-[10px] text-emerald-600 font-mono">高影响因子</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">PubMed / MEDLINE</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">ACS (美国化学会)</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">RSC 皇家化学</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">The Lancet (柳叶刀)</span>
+          </div>
+        </div>
+
+        <!-- 社科、经管与引文索引 -->
+        <div class="p-3 rounded-xl bg-black/[0.02] border border-black/[0.05] space-y-1.5 spring-card">
+          <div class="text-[11px] font-bold text-apple-sub flex items-center justify-between">
+            <span>经管社科与权威引文库</span>
+            <span class="text-[10px] text-emerald-600 font-mono">SCI/SSCI</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">Web of Science</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">Scopus</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">Emerald Insight (商科)</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">JSTOR</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">Taylor & Francis</span>
+          </div>
+        </div>
+
+        <!-- 中文顶流全库 -->
+        <div class="p-3 rounded-xl bg-black/[0.02] border border-black/[0.05] space-y-1.5 spring-card sm:col-span-2">
+          <div class="text-[11px] font-bold text-apple-sub flex items-center justify-between">
+            <span>中文官方正版全库 (知网 / 万方 / 维普 / 硕博论文)</span>
+            <span class="text-[10px] text-emerald-600 font-mono">100% 覆盖</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">中国知网 (CNKI 全学术期刊)</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-bold text-apple-ink">全国硕士/博士学位论文库</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">万方数据知识平台</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">维普中文科技期刊</span>
+            <span class="px-2 py-0.5 rounded-md bg-white border border-black/10 font-medium text-apple-ink">国家图书馆电子资源直连</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 核心表单与智能算价卡片 -->
+    <section class="apple-glass-card p-6 sm:p-7 space-y-6">
+      
+      <!-- 服务类型选择 (精确代查 vs 关键词代找) -->
+      <div>
+        <div class="text-xs font-semibold text-apple-sub mb-2.5">请选择代查方式</div>
+        <div class="grid grid-cols-2 gap-2 p-1.5 bg-black/[0.04] rounded-2xl text-xs font-semibold">
+          <button type="button" id="tab-doi" onclick="switchMode('doi')" class="py-2.5 px-3 rounded-xl bg-black text-white shadow-sm spring-tab-transition spring-press flex items-center justify-center space-x-1.5 font-bold cursor-pointer">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>精准代查 (限DOI/官方链接)</span>
+          </button>
+          <button type="button" id="tab-kw" onclick="switchMode('keyword')" class="py-2.5 px-3 rounded-xl text-apple-sub hover:text-apple-ink spring-tab-transition spring-press flex items-center justify-center space-x-1.5 font-medium cursor-pointer">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>关键词代找 (按方向/要求筛选)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 模式 A：精准代查 -->
+      <div id="section-mode-doi" class="space-y-4 anim-spring-in">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold text-apple-sub">语种与单价</span>
+            <span id="badge-doi-lang-hint" class="text-[10px] text-emerald-800 bg-emerald-500/10 px-2 py-0.5 rounded font-mono font-medium">当前已选：英文 2元/篇</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div id="lbl-doi-en" onclick="selectDoiLang('en')" class="cursor-pointer border-2 border-black bg-black/[0.02] p-3 rounded-xl flex items-center justify-between spring-card shadow-sm transition-all relative">
+              <input type="radio" id="radio-doi-en" name="doi_lang" value="en" checked class="hidden">
+              <div>
+                <div class="text-xs font-bold text-apple-ink flex items-center gap-1.5">
+                  <span>英文外文文献</span>
+                  <span id="tag-doi-en" class="text-[9px] px-1.5 py-0.2 bg-black text-white rounded font-normal">已选</span>
+                </div>
+                <div class="text-[11px] text-apple-sub">高校官方数据库高清原件</div>
+              </div>
+              <div class="text-right">
+                <span class="font-mono text-base font-bold text-apple-ink">¥2.0</span>
+                <span class="text-[10px] text-apple-sub">/篇</span>
+              </div>
+            </div>
+
+            <div id="lbl-doi-cn" onclick="selectDoiLang('cn')" class="cursor-pointer border border-black/10 hover:border-black/20 p-3 rounded-xl flex items-center justify-between spring-card transition-all relative">
+              <input type="radio" id="radio-doi-cn" name="doi_lang" value="cn" class="hidden">
+              <div>
+                <div class="text-xs font-bold text-apple-ink flex items-center gap-1.5">
+                  <span>中文学术文献</span>
+                  <span id="tag-doi-cn" class="text-[9px] px-1.5 py-0.2 bg-black text-white rounded font-normal hidden">已选</span>
+                </div>
+                <div class="text-[11px] text-apple-sub">知网/万方全库/博硕士论文</div>
+              </div>
+              <div class="text-right">
+                <span class="font-mono text-base font-bold text-apple-ink">¥1.0</span>
+                <span class="text-[10px] text-apple-sub">/篇</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 篇数控制 -->
+        <div class="flex items-center justify-between p-3 bg-black/[0.02] rounded-xl border border-black/[0.05]">
+          <span class="text-xs font-medium text-apple-ink">代查篇数：</span>
+          <div class="flex items-center space-x-3">
+            <button type="button" onclick="changeDoiCount(-1)" class="w-7 h-7 rounded-lg bg-white border border-black/10 flex items-center justify-center font-bold text-apple-ink btn-press cursor-pointer">-</button>
+            <span id="txt-doi-count" class="font-mono font-bold text-sm w-5 text-center">1</span>
+            <button type="button" onclick="changeDoiCount(1)" class="w-7 h-7 rounded-lg bg-white border border-black/10 flex items-center justify-center font-bold text-apple-ink btn-press cursor-pointer">+</button>
+          </div>
+        </div>
+
+        <!-- 文献内容输入 (精准代查严格限制只收 DOI 或官方链接) -->
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="input-doi-content" class="text-xs font-semibold text-apple-ink">
+              文献 DOI 标识 或 官方文章链接 <span class="text-red-500">* (精准代查只认 DOI)</span>
+            </label>
+            <span class="text-[10px] text-amber-700 bg-amber-500/10 px-2 py-0.5 rounded font-medium">严禁发纯标题/发AI虚拟题目</span>
+          </div>
+          <textarea id="input-doi-content" rows="3" placeholder="仅限输入 DOI（例如：10.1016/j.cell.2023.08.012）或官方论文直达网址。多篇请换行。
+※ 若您手上只有中文/英文论文题目或关键词，请点击上方切换到【关键词代找】模式！" class="w-full text-xs font-mono p-3 bg-black/[0.02] border border-black/10 rounded-xl focus:border-black focus:bg-white outline-none transition-all placeholder:text-apple-sub/50"></textarea>
+          <div class="mt-1 text-[11px] text-apple-sub flex items-center justify-between">
+            <span>※ DOI 通常以 10. 开头，提供 DOI 能确保 100% 秒下官方正版超清原件。</span>
+            <button type="button" onclick="switchMode('keyword')" class="text-apple-accent hover:underline text-[11px] font-medium cursor-pointer">没有DOI？转关键词代找 →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 模式 B：关键词代找 -->
+      <div id="section-mode-kw" class="space-y-4 hidden">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold text-apple-sub">语种基础价</span>
+            <span id="badge-kw-lang-hint" class="text-[10px] text-emerald-800 bg-emerald-500/10 px-2 py-0.5 rounded font-mono font-medium">当前已选：英文 3元起/篇</span>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div id="lbl-kw-en" onclick="selectKwLang('en')" class="cursor-pointer border-2 border-black bg-black/[0.02] p-3 rounded-xl flex items-center justify-between spring-card shadow-sm transition-all relative">
+              <input type="radio" id="radio-kw-en" name="kw_lang" value="en" checked class="hidden">
+              <div>
+                <div class="text-xs font-bold text-apple-ink flex items-center gap-1.5">
+                  <span>英文关键词代找</span>
+                  <span id="tag-kw-en" class="text-[9px] px-1.5 py-0.2 bg-black text-white rounded font-normal">已选</span>
+                </div>
+                <div class="text-[11px] text-apple-sub">SCI / 顶刊 / Web of Science</div>
+              </div>
+              <div class="text-right">
+                <span class="font-mono text-base font-bold text-apple-ink">¥3.0</span>
+                <span class="text-[10px] text-apple-sub">起/篇</span>
+              </div>
+            </div>
+
+            <div id="lbl-kw-cn" onclick="selectKwLang('cn')" class="cursor-pointer border border-black/10 hover:border-black/20 p-3 rounded-xl flex items-center justify-between spring-card transition-all relative">
+              <input type="radio" id="radio-kw-cn" name="kw_lang" value="cn" class="hidden">
+              <div>
+                <div class="text-xs font-bold text-apple-ink flex items-center gap-1.5">
+                  <span>中文关键词代找</span>
+                  <span id="tag-kw-cn" class="text-[9px] px-1.5 py-0.2 bg-black text-white rounded font-normal hidden">已选</span>
+                </div>
+                <div class="text-[11px] text-apple-sub">知网核心 / 学报 / 硕博精选</div>
+              </div>
+              <div class="text-right">
+                <span class="font-mono text-base font-bold text-apple-ink">¥2.0</span>
+                <span class="text-[10px] text-apple-sub">起/篇</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 篇数控制 -->
+        <div class="flex items-center justify-between p-3 bg-black/[0.02] rounded-xl border border-black/[0.05]">
+          <span class="text-xs font-medium text-apple-ink">需要筛选篇数：</span>
+          <div class="flex items-center space-x-3">
+            <button type="button" onclick="changeKwCount(-1)" class="w-7 h-7 rounded-lg bg-white border border-black/10 flex items-center justify-center font-bold text-apple-ink btn-press cursor-pointer">-</button>
+            <span id="txt-kw-count" class="font-mono font-bold text-sm w-5 text-center">1</span>
+            <button type="button" onclick="changeKwCount(1)" class="w-7 h-7 rounded-lg bg-white border border-black/10 flex items-center justify-center font-bold text-apple-ink btn-press cursor-pointer">+</button>
+          </div>
+        </div>
+
+        <!-- 细化要求加价规则 -->
+        <div class="space-y-2.5 p-3.5 bg-black/[0.02] rounded-xl border border-black/[0.05]">
+          <div class="text-xs font-semibold text-apple-sub mb-1">附加筛选要求 (按需勾选，明码标价)</div>
+          
+          <!-- 年份 -->
+          <div class="flex items-center justify-between text-xs py-1 border-b border-black/[0.04]">
+            <span class="text-apple-ink font-medium">发表年份要求：</span>
+            <div class="flex gap-1.5">
+              <button type="button" onclick="selectKwYear('0')" id="opt-y-0" class="px-2.5 py-1 rounded-md bg-black text-white font-bold text-[11px] cursor-pointer shadow-sm spring-tab-transition">
+                不限
+              </button>
+              <button type="button" onclick="selectKwYear('1')" id="opt-y-5" class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium text-[11px] cursor-pointer hover:bg-black/[0.08] spring-tab-transition">
+                5年内 (+1元)
+              </button>
+              <button type="button" onclick="selectKwYear('1.5')" id="opt-y-3" class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium text-[11px] cursor-pointer hover:bg-black/[0.08] spring-tab-transition">
+                3年内 (+1.5元)
+              </button>
+              <button type="button" onclick="selectKwYear('2')" id="opt-y-1" class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium text-[11px] cursor-pointer hover:bg-black/[0.08] spring-tab-transition">
+                今年内 (+2元)
+              </button>
+            </div>
+            <input type="hidden" id="val-kw-year" value="0">
+          </div>
+
+          <!-- 外国作者 -->
+          <label class="flex items-center justify-between text-xs py-1.5 border-b border-black/[0.04] cursor-pointer">
+            <div class="flex items-center space-x-2">
+              <input type="checkbox" id="chk-foreign" onchange="calcPrice()" class="rounded border-black/20 text-black focus:ring-0">
+              <span class="text-apple-ink font-medium">要求外籍作者发表 (满足外文引用规范)</span>
+            </div>
+            <span class="font-mono text-apple-sub">+¥1.5/篇</span>
+          </label>
+
+          <!-- 期刊级别 -->
+          <div class="flex items-center justify-between text-xs py-1 border-b border-black/[0.04]">
+            <span class="text-apple-ink font-medium">期刊影响级别：</span>
+            <div class="flex gap-1.5">
+              <button type="button" onclick="selectKwTier('0')" id="opt-t-0" class="px-2.5 py-1 rounded-md bg-black text-white font-bold text-[11px] cursor-pointer shadow-sm spring-tab-transition">
+                常规学术期刊
+              </button>
+              <button type="button" onclick="selectKwTier('1')" id="opt-t-sci" class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium text-[11px] cursor-pointer hover:bg-black/[0.08] spring-tab-transition">
+                SCI收录 (+1元)
+              </button>
+              <button type="button" onclick="selectKwTier('1.5')" id="opt-t-top" class="px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium text-[11px] cursor-pointer hover:bg-black/[0.08] spring-tab-transition">
+                顶刊1区 (+1.5元)
+              </button>
+            </div>
+            <input type="hidden" id="val-kw-tier" value="0">
+          </div>
+
+          <!-- 限制刊物 -->
+          <label class="flex items-center justify-between text-xs py-1.5 cursor-pointer">
+            <div class="flex items-center space-x-2">
+              <input type="checkbox" id="chk-limit-journal" onchange="calcPrice()" class="rounded border-black/20 text-black focus:ring-0">
+              <span class="text-apple-ink font-medium">限制在特定刊物范围内寻找</span>
+            </div>
+            <span class="font-mono text-apple-sub">+¥1/篇</span>
+          </label>
+        </div>
+
+        <!-- 关键词输入 -->
+        <div>
+          <label for="input-kw-content" class="block text-xs font-semibold text-apple-sub mb-1.5">
+            研究方向 / 核心关键词 / 论文拟题 <span class="text-red-500">*</span>
+          </label>
+          <textarea id="input-kw-content" rows="3" placeholder="例如：锂电池热失控机理、多模态推荐系统。若对篇幅页数有特殊限制可一并备注..." class="w-full text-xs p-3 bg-black/[0.02] border border-black/10 rounded-xl focus:border-black focus:bg-white outline-none transition-all placeholder:text-apple-sub/50"></textarea>
+        </div>
+      </div>
+
+      <!-- 第一步：客户学术身份核验 (解决刷新保护失效的根本利器，彻底杜绝免单白嫖) -->
+      <div class="p-4 rounded-2xl bg-black/[0.02] border border-black/[0.08] space-y-3">
+        <div class="flex items-center justify-between">
+          <label for="input-email" class="text-xs font-bold text-apple-ink flex items-center">
+            <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-apple-ink"></i>
+            <span>第一步：输入交付邮箱 · 验证学术身份</span>
+            <span class="text-red-500 ml-1">*</span>
+          </label>
+          <span id="badge-auth-status" class="text-[10px] text-apple-sub font-mono bg-black/[0.05] px-2 py-0.5 rounded font-bold">待输入验证</span>
+        </div>
+
+        <div class="flex gap-2">
+          <input type="email" id="input-email" oninput="onEmailInputTrigger()" placeholder="您的接收文献邮箱 (如QQ/网易/高校edu邮箱)" class="flex-grow text-xs px-3.5 py-2.5 bg-white border border-black/10 rounded-xl focus:border-black outline-none font-mono">
+          <button type="button" onclick="verifyCustomerIdentity()" id="btn-verify-identity" class="px-4 py-2.5 bg-black hover:bg-black/85 text-white text-xs font-bold rounded-xl btn-press whitespace-nowrap cursor-pointer flex items-center space-x-1">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+            <span>核验身份</span>
+          </button>
+        </div>
+
+        <!-- 身份核验结果通知卡片 (动态注入) -->
+        <div id="auth-result-card" class="text-xs p-3 rounded-xl border border-black/[0.06] bg-white text-apple-sub flex items-start space-x-2">
+          <i data-lucide="info" class="w-4 h-4 text-apple-sub flex-shrink-0 mt-0.5"></i>
+          <span id="txt-auth-msg">请输入您的常用接收邮箱并点击【核验身份】。新同学立享首单免费，老同学按标准跑腿价计费。</span>
+        </div>
+
+        <!-- 联系方式选填 -->
+        <div>
+          <label for="input-wechat" class="block text-[11px] font-semibold text-apple-sub mb-1">
+            微信或手机号 <span class="font-normal">(选填，仅用于疑难文献或紧急发货联络)</span>
+          </label>
+          <input type="text" id="input-wechat" placeholder="您的微信号或手机号" class="w-full text-xs px-3.5 py-2 bg-white border border-black/10 rounded-xl focus:border-black outline-none">
+        </div>
+      </div>
+
+      <!-- 好友邀请码核销区 (双方各免1篇) -->
+      <div class="space-y-2 pt-2 border-t border-black/[0.05]">
+        <div class="flex gap-2">
+          <input type="text" id="input-invite-code" placeholder="有好友专属 6 位邀请码？在此填写（双方各免1篇）" class="flex-grow text-xs px-3.5 py-2.5 bg-black/[0.02] border border-black/10 rounded-xl focus:border-black focus:bg-white outline-none uppercase font-mono">
+          <button type="button" onclick="verifyInviteCode()" class="px-4 py-2.5 bg-black/[0.06] hover:bg-black/[0.1] text-apple-ink text-xs font-bold rounded-xl btn-press cursor-pointer">
+            核销邀请码
+          </button>
+        </div>
+        <div id="invite-verify-tip" class="text-[11px] text-apple-sub hidden"></div>
+      </div>
+
+            <!-- 🚨 25分钟极速加急服务卡片 (搞笑幽默 · 怨种猫猫表情包配图) -->
+      <div class="p-4 rounded-2xl border-2 border-black/10 hover:border-black/30 bg-white shadow-sm space-y-3 transition-all">
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-start space-x-3">
+            <input type="checkbox" id="chk-urgent" onchange="calcPrice()" class="mt-1 w-4 h-4 rounded border-black/30 text-black focus:ring-0 cursor-pointer">
+            <div>
+              <div class="flex items-center space-x-2">
+                <label for="chk-urgent" class="text-xs font-bold text-apple-ink cursor-pointer flex items-center space-x-1">
+                  <span>🚨 开启 25 分钟极速加急直发</span>
+                </label>
+                <span class="text-[10px] bg-rose-500/10 text-rose-700 font-bold px-1.5 py-0.5 rounded border border-rose-200">
+                  晚了不收费 · 超时全额退
+                </span>
+              </div>
+              <p class="text-[11px] text-apple-sub leading-relaxed mt-1">
+                无论我是在<strong class="text-apple-ink font-semibold">洗澡、干饭、还是看电影</strong>，手机收到加急单立马擦干手拔掉耳机滚到电脑前检索回复！
+                <span class="text-rose-600 font-semibold">承诺 25 分钟内必定发送至邮箱，超时一秒直接全额退款不收钱！</span>
+              </p>
+            </div>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="text-xs font-black text-rose-600 font-mono">+¥2.00</span>
+          </div>
+        </div>
+
+        <!-- 搞笑猫猫表情包条目 -->
+        <div class="flex items-center space-x-3 p-2.5 bg-black/[0.02] rounded-xl border border-black/[0.06]">
+          <img src="assets/urgent_meme.jpg" alt="你好很高兴为你服务" class="w-14 h-14 object-contain rounded-lg border border-black/10 bg-white flex-shrink-0 shadow-sm">
+          <div class="text-[11px] text-apple-sub leading-snug">
+            <div class="font-bold text-apple-ink">专员真实在线心理活动：</div>
+            <div class="text-apple-sub/90 mt-0.5">“你好，很高兴为你服务（耳机已戴好，双手正疯狂敲键盘中...）”</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 结算清单与价格明细 (默认标准价，验证新客通过后才抵扣) -->
+      <div class="p-4 bg-black/[0.02] rounded-xl border border-black/[0.06] space-y-2.5 text-xs">
+        <div class="flex justify-between items-center text-apple-sub">
+          <span id="txt-calc-item-title">精确代查 (英文外文文献)</span>
+          <span id="txt-calc-item-math" class="font-mono font-medium text-apple-ink">¥2.00 × 1篇 = ¥2.00</span>
+        </div>
+
+        <div id="box-discount-row" class="hidden flex justify-between items-center text-emerald-700 font-medium">
+          <span id="txt-calc-discount-label">新客首篇免费试用立减</span>
+          <span id="txt-calc-discount" class="font-mono font-bold">-¥2.00</span>
+        </div>
+
+        <div id="box-urgent-row" class="hidden flex justify-between items-center text-rose-600 font-medium">
+          <span id="txt-calc-urgent-label">🚨 25分钟极速加急服务 (晚了不收钱)</span>
+          <span id="txt-calc-urgent" class="font-mono font-bold">+¥2.00</span>
+        </div>
+
+        <div class="pt-2 border-t border-black/[0.06] flex items-baseline justify-between">
+          <div>
+            <span class="text-xs font-bold text-apple-ink">实付总计金额：</span>
+            <span class="text-[10px] text-apple-sub ml-1">人工直发邮箱 · 下不到全额退</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-bold text-apple-ink">¥</span>
+            <span id="txt-final-price" class="text-2xl font-black font-mono text-apple-ink tabular-nums">2.00</span>
+          </div>
+        </div>
+      
+      <!-- 第一步操作按钮：前往付款收银台 -->
+      <div id="step1-action-box" class="pt-2">
+        <button type="button" id="btn-goto-pay" onclick="goToPaymentStep()" class="w-full py-4 bg-black hover:bg-black/90 text-white font-bold text-sm rounded-xl btn-press shadow-md flex items-center justify-center space-x-2 cursor-pointer transition-all">
+          <i data-lucide="arrow-right-circle" class="w-4 h-4"></i>
+          <span id="txt-goto-pay-btn">确认文献需求，前往扫码付款 (¥2.00)</span>
+        </button>
+        <p class="text-[11px] text-apple-sub text-center mt-2">
+          先核对文献需求与金额 ➔ 前往收银台扫码转账 ➔ 付款完成后系统正式生成查询工单
+        </p>
+      </div>
+
+      <!-- 第二步：专属收银台 (先付款，付款完成后系统再生成工单) -->
+      <div id="step2-checkout-box" class="hidden space-y-4 pt-4 border-t-2 border-dashed border-black/10 anim-spring-in">
+        
+        <!-- 待付款订单锁定摘要卡片 -->
+        <div class="p-4 rounded-2xl bg-black/[0.03] border border-black/10 flex items-center justify-between">
+          <div class="space-y-1">
+            <div class="flex items-center space-x-1.5">
+              <span class="text-xs font-bold text-apple-ink">已锁定文献需求</span>
+              <span id="badge-checkout-urgent" class="hidden text-[9px] px-1.5 py-0.2 rounded-full bg-rose-500/15 text-rose-700 font-bold">🚨 25min加急</span>
+            </div>
+            <div id="txt-checkout-summary" class="text-xs text-apple-sub line-clamp-1 max-w-xs sm:max-w-md font-mono">10.1016/...</div>
+            <div class="text-[11px] text-apple-sub">交付邮箱：<span id="txt-checkout-email" class="font-mono font-bold text-apple-ink">student@edu.cn</span></div>
+          </div>
+          <div class="text-right">
+            <div class="text-[10px] text-apple-sub">应付总额</div>
+            <div class="text-xl font-black font-mono text-apple-ink">¥<span id="txt-checkout-amount">2.00</span></div>
+            <button type="button" onclick="backToStep1()" class="text-[10px] text-apple-sub hover:text-black underline mt-1 cursor-pointer">修改需求</button>
+          </div>
+        </div>
+
+        <!-- 扫码支付与凭证核验区域 -->
+        <div id="section-payment" class="p-5 rounded-2xl border border-black/10 bg-white space-y-3.5 shadow-sm">
+          <div class="flex items-center justify-between border-b border-black/[0.06] pb-2.5">
+            <div>
+              <div class="flex items-center space-x-1.5">
+                <span class="text-xs font-bold text-apple-ink">第二步：扫码支付并填写付款凭证</span>
+                <span id="badge-delivery-time" class="text-[10px] text-emerald-800 bg-emerald-500/15 px-2 py-0.5 rounded font-bold">2小时内附件发邮箱</span>
+              </div>
+              <div class="text-[11px] text-apple-sub mt-0.5">扫码转账后填写账单单号后4位，点击按钮系统正式生成工单</div>
+            </div>
+            
+            <!-- 支付方式切换: 扫码支付 vs 卡密抵扣 -->
+            <div class="flex p-0.5 bg-black/[0.05] rounded-xl text-xs font-bold">
+              <button type="button" onclick="switchPayChannel('qrcode')" id="btn-channel-qr" class="px-3 py-1.5 rounded-lg bg-black text-white shadow-sm spring-tab-transition spring-press cursor-pointer font-bold">扫码支付</button>
+              <button type="button" onclick="switchPayChannel('card')" id="btn-channel-card" class="px-3 py-1.5 rounded-lg text-apple-sub hover:text-black spring-tab-transition spring-press cursor-pointer font-medium">卡密抵扣</button>
+            </div>
+          </div>
+
+          <!-- 子通道 A：扫码支付模式 -->
+          <div id="channel-box-qr" class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-apple-ink">选择付款码 (手机长按保存)：</span>
+              <div class="flex p-0.5 bg-black/[0.05] rounded-lg text-[11px] font-bold">
+                <button type="button" onclick="setPayMethod('wechat')" id="btn-pay-wx" class="px-2.5 py-1 rounded-md bg-black text-white shadow-sm spring-tab-transition spring-press cursor-pointer font-bold">微信支付</button>
+                <button type="button" onclick="setPayMethod('alipay')" id="btn-pay-ali" class="px-2.5 py-1 rounded-md text-apple-sub hover:text-black spring-tab-transition spring-press cursor-pointer font-medium">支付宝</button>
+              </div>
+            </div>
+
+            <!-- 收款码图片 -->
+            <div id="box-qr-wrapper" class="w-48 sm:w-56 mx-auto p-2 bg-black/[0.02] rounded-xl border border-black/10 shadow-sm flex items-center justify-center relative">
+              <img id="img-pay-qr" src="assets/wechat_pay.jpg" alt="真实收款码" class="w-full h-auto object-contain rounded-lg">
+            </div>
+
+            <div id="tip-pay-qr" class="text-center text-[11px] text-apple-sub">
+              请使用微信或支付宝扫描上方收款码转账实付金额
+            </div>
+
+            <!-- 核心：真实付款对账凭据输入区 (彻底解决假付款与空气凭证) -->
+            <div id="box-proof-inputs" class="p-3.5 bg-black/[0.02] rounded-xl border border-black/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <label for="input-pay-tail" class="text-xs font-bold text-apple-ink flex items-center">
+                  <i data-lucide="receipt" class="w-3.5 h-3.5 mr-1 text-apple-ink"></i>
+                  <span>填写转账流水后 4 位 (付款完成后系统正式生成工单)</span>
+                </label>
+                <span class="text-[10px] text-rose-600 font-bold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200">必填防逃单</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div>
+                  <input type="text" id="input-pay-tail" maxlength="10" placeholder="微信/支付宝账单【单号后4位】(如 8912)" class="w-full text-xs px-3 py-2 bg-white border border-black/15 rounded-lg focus:border-black outline-none font-mono font-bold text-apple-ink">
+                  <div class="text-[10px] text-apple-sub mt-1">在付款成功账单中查看【交易单号】末尾 4 位数字</div>
+                </div>
+                <div>
+                  <input type="text" id="input-pay-name" maxlength="20" placeholder="付款人昵称/姓氏 (如 李同学 或 微信昵称)" class="w-full text-xs px-3 py-2 bg-white border border-black/15 rounded-lg focus:border-black outline-none text-apple-ink">
+                  <div class="text-[10px] text-apple-sub mt-1">辅助站长秒级核准流水，加快检索排队</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 子通道 B：卡密/激活码抵扣模式 (真实云端核销) -->
+          <div id="channel-box-card" class="hidden space-y-3">
+            <div class="flex items-center justify-between">
+              <label for="input-license-key" class="text-xs font-bold text-apple-ink flex items-center">
+                <i data-lucide="key-round" class="w-3.5 h-3.5 mr-1 text-apple-ink"></i>
+                <span>输入授权卡密 / 激活码 (License Key)</span>
+              </label>
+              <span id="badge-key-status" class="text-[10px] font-mono text-apple-sub bg-black/[0.05] px-2 py-0.5 rounded font-bold">待输入核销</span>
+            </div>
+
+            <div class="flex gap-2">
+              <input type="text" id="input-license-key" placeholder="输入从站长/微店/闲鱼获取的有效卡密 (如 EXP-8891-XXXX)" class="flex-grow text-xs px-3.5 py-2.5 bg-black/[0.02] border border-black/10 rounded-xl focus:border-black focus:bg-white outline-none font-mono uppercase font-bold tracking-wider text-apple-ink">
+              <button type="button" onclick="verifyLicenseKey()" id="btn-verify-key" class="px-4 py-2.5 bg-black hover:bg-black/85 text-white text-xs font-bold rounded-xl btn-press whitespace-nowrap cursor-pointer flex items-center space-x-1">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                <span>核验卡密</span>
+              </button>
+            </div>
+
+            <div id="box-card-result" class="text-xs p-3 rounded-xl border border-black/10 bg-black/[0.02] text-apple-sub">
+              卡密可在站长微店/闲鱼或微信购买获得。核验成功后将自动抵扣文献代查费用。
+            </div>
+          </div>
+
+          <!-- 全免单特别提示卡片 (当金额为0时显示) -->
+          <div id="box-free-alert" class="hidden p-3.5 rounded-xl border border-emerald-500/30 bg-emerald-500/[0.06] text-emerald-900 text-xs flex items-center space-x-2">
+            <i data-lucide="gift" class="w-5 h-5 text-emerald-700 flex-shrink-0"></i>
+            <div><strong>🎉 恭喜！本单已获得 100% 免单特权</strong>：无需扫码转账，点击下方按钮系统将直接生成免费工单发往站长后台！</div>
+          </div>
+        </div>
+
+        <!-- 极简特别说明 (字极少、杜绝扯皮) -->
+        <div class="text-[11px] text-apple-sub leading-relaxed space-y-1 px-1">
+          <div>· 承诺 2 小时内将 100% 官方正版超清 PDF 原件直接发至您的邮箱 (若勾选加急则 25 分钟极速直达)（每日 08:00 – 凌晨 01:00 在线）。</div>
+          <div>· 无需任何第三方网盘下载，原件作为邮件附件直达，永久留存不失效。</div>
+          <div>· 提单后直连推送至专员 Gmail 工作邮箱（chinareferencehelper@gmail.com）即刻触发提醒。</div>
+        </div>
+
+        <!-- 核心出单操作：付款完成，系统正式生成工单 -->
+        <div class="space-y-2">
+          <button type="button" id="btn-submit-order" onclick="submitClientOrder()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl btn-press shadow-md flex items-center justify-center space-x-2 cursor-pointer transition-all">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            <span id="txt-submit-btn">我已扫码支付，系统正式生成查询工单</span>
+          </button>
+          
+          <button type="button" onclick="backToStep1()" class="w-full py-2.5 rounded-xl border border-black/10 hover:bg-black/[0.04] text-apple-sub hover:text-black text-xs font-medium cursor-pointer text-center">
+            ← 返回上一步修改文献需求或篇数
+          </button>
+        </div>
+
+        <div id="submit-loading-tip" class="hidden text-center text-xs text-apple-sub flex items-center justify-center space-x-1.5 py-1">
+          <span class="w-3 h-3 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+          <span>正在生成专属服务工单并直连推送至站长后台与 Gmail...</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 客户进度自查专区 (纯粹对客) -->
+    <section id="section-track" class="apple-glass-card p-6 sm:p-7 space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-sm font-bold text-apple-ink flex items-center">
+          <i data-lucide="clock" class="w-4 h-4 mr-1.5 text-apple-sub"></i>
+          <span>工单交付进度查询</span>
+        </h2>
+        <span class="text-[11px] text-apple-sub">输入提单邮箱即可自查</span>
+      </div>
+
+      <div class="flex gap-2">
+        <input type="text" id="query-email-input" placeholder="输入您提单时填写的邮箱 或 订单号" class="flex-grow text-xs px-3.5 py-2.5 bg-black/[0.02] border border-black/10 rounded-xl focus:border-black focus:bg-white outline-none font-mono">
+        <button type="button" onclick="queryOrderStatus()" class="px-4 py-2.5 bg-black text-white text-xs font-bold rounded-xl btn-press">
+          查询
+        </button>
+      </div>
+
+      <!-- 查询结果容器 -->
+      <div id="query-result-box" class="hidden space-y-3 pt-2">
+        <!-- 动态注入 -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 页脚 (极简克制) -->
+  <footer class="max-w-4xl mx-auto px-4 text-center text-xs text-apple-sub mt-8 space-y-1">
+    <div>文献人工代查 · 纯人工检索 · 100% 正版高清原件</div>
+    <div class="text-[10px] text-black/30">每日 08:00 - 凌晨 01:00 在线 · 下不到不收费</div>
+  </footer>
+
+  <!-- 弹窗 0：微信客服名片弹窗 (真实名片) -->
+  <div id="modal-contact" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="apple-glass-card max-w-sm w-full p-6 space-y-4 shadow-xl text-center">
+      <div class="flex items-center justify-between">
+        <div class="text-sm font-bold text-apple-ink flex items-center">
+          <i data-lucide="message-circle" class="w-4 h-4 mr-1.5 text-emerald-600"></i>
+          <span>微信客服 · 看到信息秒回</span>
+        </div>
+        <button onclick="closeContactModal()" class="text-apple-sub hover:text-apple-ink">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="w-52 h-64 mx-auto rounded-xl overflow-hidden border border-black/10 shadow-sm bg-white p-2">
+        <img src="assets/wechat_contact.jpg" alt="微信客服二维码" class="w-full h-full object-contain rounded-lg">
+      </div>
+
+      <p class="text-xs text-apple-sub leading-relaxed">
+        扫码添加专员微信好友：<span class="font-bold text-apple-ink font-mono">AAA人工文献库</span><br>
+        如遇疑难绝版或加急，看到信息秒回！
+      </p>
+    </div>
+  </div>
+
+  <!-- 弹窗 1：分享裂变弹窗 (输入邮箱即生成 6 位专属邀请码) -->
+  <div id="modal-share" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="apple-glass-card max-w-sm w-full p-6 space-y-4 shadow-xl">
+      <div class="flex items-center justify-between">
+        <div class="text-sm font-bold text-apple-ink flex items-center">
+          <i data-lucide="gift" class="w-4 h-4 mr-1.5 text-emerald-600"></i>
+          <span>邀请好友，双方各免 1 篇</span>
+        </div>
+        <button onclick="closeShareModal()" class="text-apple-sub hover:text-apple-ink">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-apple-sub leading-relaxed">
+        输入您的邮箱，生成您的专属邀请码。发给同学或舍友，好友凭码提单免首篇，您也免费多得 1 篇代查额度（中英文均可）！
+      </p>
+
+      <div class="space-y-2">
+        <input type="email" id="share-my-email" placeholder="输入您的常用邮箱" class="w-full text-xs px-3.5 py-2.5 bg-black/[0.02] border border-black/10 rounded-xl focus:border-black outline-none font-mono">
+        <button onclick="generateMyInviteCode()" class="w-full py-2.5 bg-black text-white text-xs font-bold rounded-xl btn-press">
+          生成我的专属邀请码
+        </button>
+      </div>
+
+      <!-- 生成后的展示卡片 -->
+      <div id="share-code-box" class="hidden p-3.5 bg-black/[0.02] border border-black/10 rounded-xl space-y-2 text-xs">
+        <div class="flex justify-between items-center">
+          <span class="text-apple-sub">您的专属邀请码：</span>
+          <span id="txt-generated-code" class="font-mono font-bold text-base text-apple-ink tracking-wider">EXP888</span>
+        </div>
+        <button onclick="copyInviteShareText()" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg btn-press flex items-center justify-center space-x-1">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span>一键复制推荐文案给同学</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 弹窗 2：付款成功票据 Sheet (纯人工检索，2小时内直接发至邮箱) -->
+  <div id="modal-receipt" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="apple-glass-card max-w-sm w-full p-6 sm:p-7 space-y-4 shadow-2xl text-center anim-spring-in relative">
+      <!-- 右上角关闭 -->
+      <button type="button" onclick="closeReceiptModal()" class="absolute top-4 right-4 text-apple-sub hover:text-apple-ink cursor-pointer">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
+        <i data-lucide="mail-check" class="w-6 h-6 stroke-[2.2]"></i>
+      </div>
+
+      <div>
+        <div class="inline-flex items-center space-x-1.5 text-[11px] font-bold text-emerald-800 bg-emerald-500/10 px-2.5 py-0.5 rounded-full mb-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>工单已接单 · 专员正在高校图书馆下载</span>
+        </div>
+        <h3 class="text-base font-bold text-apple-ink">工单已收到，2小时内发您邮箱</h3>
+        <p class="text-xs text-apple-sub mt-1 leading-relaxed">
+          工单已直连推送至站长工作邮箱 (<span class="font-mono text-apple-ink font-bold">chinareferencehelper@gmail.com</span>)。专员已在工位检索，100% 官方正版超清 PDF 原件将作为邮件附件直接发送至您的邮箱！
+        </p>
+      </div>
+
+      <!-- 交付信息卡片 -->
+      <div class="p-3.5 bg-black/[0.02] border border-black/10 rounded-2xl text-xs space-y-2 text-left font-mono">
+        <div class="flex justify-between">
+          <span class="text-apple-sub">工单单号：</span>
+          <span id="receipt-order-id" class="font-bold text-apple-ink select-all">EXP-...</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-apple-sub">交付邮箱：</span>
+          <span id="receipt-email" class="font-bold text-apple-ink select-all">user@stu.edu.cn</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-apple-sub">实付金额：</span>
+          <span id="receipt-amount" class="font-bold text-emerald-700">¥0.00</span>
+        </div>
+        <div class="flex justify-between" id="receipt-pay-proof-row">
+          <span class="text-apple-sub">授权激活码：</span>
+          <span id="receipt-pay-proof" class="font-bold text-apple-ink font-mono select-all">KEY-FREE-NEW</span>
+        </div>
+        <div class="flex justify-between pt-1 border-t border-black/[0.05] text-[11px] text-apple-sub font-sans">
+          <span>交付方式：</span>
+          <span class="font-bold text-apple-ink">官方正版超清原件 PDF 附件直发</span>
+        </div>
+      </div>
+
+      <!-- 提示 -->
+      <div class="text-[11px] text-apple-sub bg-emerald-500/[0.05] border border-emerald-500/20 p-2.5 rounded-xl leading-relaxed text-center">
+        每日 08:00 – 凌晨 01:00 在线检索，2小时内发出。如遇疑难绝版或加急，请直接联系专员微信客服！
+      </div>
+
+      <!-- 底部操作按钮 -->
+      <div class="space-y-2 pt-1">
+        <button type="button" onclick="copyReceiptMemo()" class="w-full py-2.5 bg-black hover:bg-black/90 text-white text-xs font-bold rounded-xl btn-press cursor-pointer flex items-center justify-center space-x-1 shadow-sm">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span>复制工单单号备忘</span>
+        </button>
+        <button type="button" onclick="closeReceiptModal()" class="w-full py-2 bg-black/[0.05] hover:bg-black/[0.08] text-apple-ink text-xs font-medium rounded-xl cursor-pointer">
+          关闭，去邮箱等待查收
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心逻辑脚本 (纯前端逻辑，数据与私密控制台互通) -->
+  <script>
+    const STORAGE_KEY = 'academic_express_orders_v2';
+    const INVITE_STORAGE_KEY = 'academic_express_invites_v2';
+    const FREE_USED_DEVICE_KEY = 'academic_express_used_free_device_v2';
+    const FREE_USED_EMAILS_KEY = 'academic_express_used_free_emails_v2';
+    const KEYS_STORAGE_KEY = 'academic_express_license_keys_v1';
+
+    let currentMode = 'doi'; // 'doi' 或 'keyword'
+    let currentDoiLang = 'en'; // 'en' 或 'cn'
+    let currentKwLang = 'en';  // 'en' 或 'cn'
+    let doiCount = 1;
+    let kwCount = 1;
+    let currentPayMethod = 'wechat'; // 'wechat' 或 'alipay'
+    let currentPayChannel = 'qrcode'; // 'qrcode' 或 'card'
+    let validInviteCode = null;
+    let verifiedCustomer = null; // { email: string, isFreeEligible: boolean }
+    let currentVerifiedKey = null; // { key: string, type: string, discount: number }
+
+    // ==========================================
+    // 云端数据库 API 驱动 (Supabase REST / 优雅容错)
+    // ==========================================
+    const CloudService = {
+      getConfig() {
+        return {
+          url: localStorage.getItem('AE_SUPABASE_URL') || '',
+          key: localStorage.getItem('AE_SUPABASE_KEY') || ''
+        };
+      },
+      isReady() {
+        const c = this.getConfig();
+        return Boolean(c.url && c.url.startsWith('https://') && c.key && c.key.length > 20);
+      },
+      getHeaders() {
+        const c = this.getConfig();
+        return {
+          'apikey': c.key,
+          'Authorization': `Bearer ${c.key}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=representation'
+        };
+      },
+      // 提交工单
+      async createOrder(order) {
+        if (this.isReady()) {
+          try {
+            const c = this.getConfig();
+            const payload = {
+              id: order.id,
+              service_type: order.serviceType,
+              content: order.content,
+              email: order.email,
+              wechat: order.wechat,
+              amount: order.amount,
+              payment_method: order.paymentMethod,
+              payer_proof: order.payProof,
+              pay_type: order.payType,
+              license_key_used: order.licenseKeyUsed || null,
+              finance_status: order.financeStatus,
+              status: order.status,
+              is_urgent: order.isUrgent,
+              is_free: order.isFreeUsed,
+              invite_code: order.inviteCodeUsed || null
+            };
+            const res = await fetch(`${c.url}/rest/v1/academic_orders`, {
+              method: 'POST',
+              headers: this.getHeaders(),
+              body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+              console.log('✓ 工单已实时写入云端数据库');
+            } else {
+              console.warn('云端写入响应非200:', await res.text());
+            }
+          } catch (e) {
+            console.warn('网络请求异常，保留本地离线备份:', e);
+          }
+        }
+        // 本地备份存储
+        let orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        orders.unshift(order);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+        return order;
+      },
+      // 自查工单
+      async queryOrders(queryStr) {
+        const clean = queryStr.trim().toLowerCase();
+        let list = [];
+        if (this.isReady()) {
+          try {
+            const c = this.getConfig();
+            const filter = `or=(email.ilike.*${encodeURIComponent(clean)}*,id.ilike.*${encodeURIComponent(clean)}*)`;
+            const res = await fetch(`${c.url}/rest/v1/academic_orders?${filter}&order=created_at.desc`, {
+              headers: this.getHeaders()
+            });
+            if (res.ok) {
+              const remote = await res.json();
+              if (Array.isArray(remote) && remote.length > 0) {
+                list = remote.map(r => ({
+                  id: r.id,
+                  createdAt: r.created_at ? r.created_at.replace('T', ' ').slice(0, 16) : '',
+                  serviceType: r.service_type,
+                  content: r.content,
+                  email: r.email,
+                  amount: Number(r.amount || 0),
+                  status: r.status,
+                  financeStatus: r.finance_status,
+                  payerName: r.payer_proof,
+                  isUrgent: r.is_urgent
+                }));
+              }
+            }
+          } catch (e) {
+            console.warn('云端自查失败，降级本地:', e);
+          }
+        }
+        if (list.length === 0) {
+          const localOrders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+          list = localOrders.filter(o => (o.email && o.email.toLowerCase().includes(clean)) || (o.id && o.id.toLowerCase().includes(clean)));
+        }
+        return list;
+      },
+      // 检查邮箱是否已享受过首单免费 (云端防刷核心)
+      async checkEmailFreeUsed(email) {
+        const clean = email.trim().toLowerCase();
+        if (this.isReady()) {
+          try {
+            const c = this.getConfig();
+            const res = await fetch(`${c.url}/rest/v1/academic_orders?email=eq.${encodeURIComponent(clean)}&is_free=eq.true&select=id`, {
+              headers: this.getHeaders()
+            });
+            if (res.ok) {
+              const rows = await res.json();
+              if (rows && rows.length > 0) return true;
+            }
+          } catch (e) {}
+        }
+        const usedEmails = JSON.parse(localStorage.getItem(FREE_USED_EMAILS_KEY) || '[]');
+        if (usedEmails.includes(clean)) return true;
+        const localOrders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        return localOrders.some(o => o.email && o.email.toLowerCase() === clean && (o.amount === 0 || o.isFreeUsed));
+      },
+      // 核验卡密有效性
+      async verifyLicenseKey(keyStr) {
+        const clean = keyStr.trim().toUpperCase();
+        if (!clean) return { valid: false, reason: '请输入卡密代码' };
+
+        if (this.isReady()) {
+          try {
+            const c = this.getConfig();
+            const res = await fetch(`${c.url}/rest/v1/academic_license_keys?key=eq.${encodeURIComponent(clean)}&select=*`, {
+              headers: this.getHeaders()
+            });
+            if (res.ok) {
+              const rows = await res.json();
+              if (!rows || rows.length === 0) {
+                return { valid: false, reason: '卡密不存在，请核对是否从站长处获取' };
+              }
+              const row = rows[0];
+              if (row.status === 'used') {
+                return { valid: false, reason: `该卡密已被工单 ${row.order_id || ''} 核销使用，无法再次抵扣` };
+              }
+              return {
+                valid: true,
+                key: row.key,
+                type: row.type || 'standard',
+                discount: Number(row.discount_amount || 2.0)
+              };
+            }
+          } catch (e) {
+            console.warn('云端核验超时，尝试本地库:', e);
+          }
+        }
+        // 本地卡密库核验
+        const keys = JSON.parse(localStorage.getItem(KEYS_STORAGE_KEY) || '[]');
+        const found = keys.find(k => k.key.toUpperCase() === clean);
+        if (!found) {
+          return { valid: false, reason: '激活码不存在，请核对大小写或联系站长微信' };
+        }
+        if (found.status === 'used') {
+          return { valid: false, reason: `该激活码已于此前被核销作废` };
+        }
+        let disc = 2.0;
+        if (found.type === 'free' || found.key.startsWith('FREE-')) disc = 999.0;
+        else if (found.type === 'urgent') disc = 4.0;
+        return {
+          valid: true,
+          key: found.key,
+          type: found.type || 'standard',
+          discount: disc
+        };
+      },
+      // 核销卡密
+      async consumeLicenseKey(keyStr, email, orderId) {
+        const clean = keyStr.trim().toUpperCase();
+        if (this.isReady()) {
+          try {
+            const c = this.getConfig();
+            await fetch(`${c.url}/rest/v1/academic_license_keys?key=eq.${encodeURIComponent(clean)}`, {
+              method: 'PATCH',
+              headers: this.getHeaders(),
+              body: JSON.stringify({
+                status: 'used',
+                used_at: new Date().toISOString(),
+                used_by_email: email,
+                order_id: orderId
+              })
+            });
+          } catch (e) {}
+        }
+        let keys = JSON.parse(localStorage.getItem(KEYS_STORAGE_KEY) || '[]');
+        const k = keys.find(item => item.key.toUpperCase() === clean);
+        if (k) {
+          k.status = 'used';
+          k.usedAt = new Date().toLocaleString();
+          k.usedByEmail = email;
+          k.orderId = orderId;
+          localStorage.setItem(KEYS_STORAGE_KEY, JSON.stringify(keys));
+        }
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initLicenseKeysPool();
+
+      // 初始化表单选择
+      selectDoiLang('en');
+      selectKwLang('en');
+      selectKwYear('0');
+      selectKwTier('0');
+
+      resetCustomerVerification();
+      calcPrice();
+    });
+
+    // 初始化本地标准卡密演示池
+    function initLicenseKeysPool() {
+      let keys = JSON.parse(localStorage.getItem(KEYS_STORAGE_KEY) || '[]');
+      if (keys.length === 0) {
+        const initialKeys = [
+          { key: 'EXP-8891-AA12', type: 'standard', status: 'unused', createdAt: '初始预设' },
+          { key: 'EXP-8892-BB34', type: 'standard', status: 'unused', createdAt: '初始预设' },
+          { key: 'EXP-URGENT-991', type: 'urgent', status: 'unused', createdAt: '初始加急' }
+        ];
+        localStorage.setItem(KEYS_STORAGE_KEY, JSON.stringify(initialKeys));
+      }
+    }
+
+    function hasDeviceUsedFree() {
+      return localStorage.getItem(FREE_USED_DEVICE_KEY) === 'true';
+    }
+
+    // 重置身份核验状态
+    function resetCustomerVerification() {
+      verifiedCustomer = null;
+      const badge = document.getElementById('badge-auth-status');
+      const msg = document.getElementById('txt-auth-msg');
+      const card = document.getElementById('auth-result-card');
+      if (badge) {
+        badge.innerText = '待输入验证';
+        badge.className = 'text-[10px] text-apple-sub font-mono bg-black/[0.05] px-2 py-0.5 rounded font-bold';
+      }
+      if (msg) {
+        msg.innerText = '请输入您的常用接收邮箱并点击【核验身份】。新同学立享首单免费，老同学按标准跑腿价计费。';
+      }
+      if (card) {
+        card.className = 'text-xs p-3 rounded-xl border border-black/[0.06] bg-white text-apple-sub flex items-start space-x-2';
+      }
+    }
+
+    function onEmailInputTrigger() {
+      resetCustomerVerification();
+      calcPrice();
+    }
+
+    // 执行学术身份核验 (真正云端防刷)
+    async function verifyCustomerIdentity() {
+      const input = document.getElementById('input-email');
+      const email = input ? input.value.trim().toLowerCase() : '';
+      if (!email || !email.includes('@')) {
+        alert('【请输入有效交付邮箱】\n\n请在输入框中填写您用于接收正版文献 PDF 的真实邮箱 (如 QQ/网易/高校 edu 邮箱)！');
+        if (input) input.focus();
+        return;
+      }
+
+      const badge = document.getElementById('badge-auth-status');
+      const msg = document.getElementById('txt-auth-msg');
+      const card = document.getElementById('auth-result-card');
+
+      if (badge) badge.innerText = '核验中...';
+
+      const isUsed = await CloudService.checkEmailFreeUsed(email) || hasDeviceUsedFree();
+
+      if (isUsed) {
+        verifiedCustomer = { email: email, isFreeEligible: false };
+        if (badge) {
+          badge.innerText = '老同学已核验';
+          badge.className = 'text-[10px] text-apple-ink font-mono bg-black/[0.08] px-2 py-0.5 rounded font-bold';
+        }
+        if (msg) {
+          msg.innerText = '👤 身份核验通过：老同学欢迎回归！系统检测到您此前已体验过新客首单免单，本次按标准超低跑腿价结算。感谢支持高校兼职跑腿！';
+        }
+        if (card) {
+          card.className = 'text-xs p-3 rounded-xl border border-black/10 bg-black/[0.02] text-apple-ink flex items-start space-x-2';
+        }
+      } else {
+        verifiedCustomer = { email: email, isFreeEligible: true };
+        if (badge) {
+          badge.innerText = '🎉 新客免单已激活';
+          badge.className = 'text-[10px] text-emerald-800 font-mono bg-emerald-500/20 px-2 py-0.5 rounded font-bold';
+        }
+        if (msg) {
+          msg.innerText = '🎉 身份核验通过：恭喜新同学！新客福利已激活，首篇文献立享 100% 免单！官方正版原件查到后直发您的邮箱。';
+        }
+        if (card) {
+          card.className = 'text-xs p-3 rounded-xl border border-emerald-500/30 bg-emerald-500/[0.06] text-emerald-900 flex items-start space-x-2';
+        }
+      }
+
+      calcPrice();
+      lucide.createIcons();
+    }
+
+    // 模式切换: doi vs keyword
+    function switchMode(mode) {
+      currentMode = mode;
+      const tabDoi = document.getElementById('tab-doi');
+      const tabKw = document.getElementById('tab-kw');
+      const secDoi = document.getElementById('section-mode-doi');
+      const secKw = document.getElementById('section-mode-kw');
+
+      if (!tabDoi || !tabKw || !secDoi || !secKw) return;
+
+      secDoi.classList.remove('anim-spring-in');
+      secKw.classList.remove('anim-spring-in');
+
+      if (mode === 'doi') {
+        tabDoi.className = "py-2.5 px-3 rounded-xl bg-black text-white shadow-sm spring-tab-transition spring-press flex items-center justify-center space-x-1.5 font-bold cursor-pointer";
+        tabKw.className = "py-2.5 px-3 rounded-xl text-apple-sub hover:text-apple-ink spring-tab-transition spring-press flex items-center justify-center space-x-1.5 font-medium cursor-pointer";
+        secDoi.classList.remove('hidden');
+        void secDoi.offsetWidth;
+        secDoi.classList.add('anim-spring-in');
+        secKw.classList.add('hidden');
+      } else {
+        tabKw.className = "py-2.5 px-3 rounded-xl bg-black text-white shadow-sm spring-tab-transition spring-press flex items-center justify-center space-x-1.5 font-bold cursor-pointer";
+        tabDoi.className = "py-2.5 px-3 rounded-xl text-apple-sub hover:text-apple-ink spring-tab-transition spring-press flex items-center justify-center space-x-1.5 font-medium cursor-pointer";
+        secKw.classList.remove('hidden');
+        void secKw.offsetWidth;
+        secKw.classList.add('anim-spring-in');
+        secDoi.classList.add('hidden');
+      }
+      calcPrice();
+      lucide.createIcons();
+    }
+
+    function selectDoiLang(lang) {
+      currentDoiLang = lang;
+      const radioEn = document.getElementById('radio-doi-en');
+      const radioCn = document.getElementById('radio-doi-cn');
+      const lblEn = document.getElementById('lbl-doi-en');
+      const lblCn = document.getElementById('lbl-doi-cn');
+      const tagEn = document.getElementById('tag-doi-en');
+      const tagCn = document.getElementById('tag-doi-cn');
+      const badgeHint = document.getElementById('badge-doi-lang-hint');
+
+      if (lang === 'en') {
+        if (radioEn) radioEn.checked = true;
+        if (lblEn) lblEn.className = "cursor-pointer border-2 border-black bg-black/[0.03] p-3 rounded-xl flex items-center justify-between spring-card shadow-sm transition-all relative";
+        if (lblCn) lblCn.className = "cursor-pointer border border-black/10 hover:border-black/20 p-3 rounded-xl flex items-center justify-between spring-card transition-all relative";
+        if (tagEn) tagEn.classList.remove('hidden');
+        if (tagCn) tagCn.classList.add('hidden');
+        if (badgeHint) badgeHint.innerText = "当前已选：英文 2元/篇";
+      } else {
+        if (radioCn) radioCn.checked = true;
+        if (lblCn) lblCn.className = "cursor-pointer border-2 border-black bg-black/[0.03] p-3 rounded-xl flex items-center justify-between spring-card shadow-sm transition-all relative";
+        if (lblEn) lblEn.className = "cursor-pointer border border-black/10 hover:border-black/20 p-3 rounded-xl flex items-center justify-between spring-card transition-all relative";
+        if (tagCn) tagCn.classList.remove('hidden');
+        if (tagEn) tagEn.classList.add('hidden');
+        if (badgeHint) badgeHint.innerText = "当前已选：中文 1元/篇";
+      }
+      calcPrice();
+    }
+
+    function selectKwLang(lang) {
+      currentKwLang = lang;
+      const radioEn = document.getElementById('radio-kw-en');
+      const radioCn = document.getElementById('radio-kw-cn');
+      const lblEn = document.getElementById('lbl-kw-en');
+      const lblCn = document.getElementById('lbl-kw-cn');
+      const tagEn = document.getElementById('tag-kw-en');
+      const tagCn = document.getElementById('tag-kw-cn');
+      const badgeHint = document.getElementById('badge-kw-lang-hint');
+
+      if (lang === 'en') {
+        if (radioEn) radioEn.checked = true;
+        if (lblEn) lblEn.className = "cursor-pointer border-2 border-black bg-black/[0.03] p-3 rounded-xl flex items-center justify-between spring-card shadow-sm transition-all relative";
+        if (lblCn) lblCn.className = "cursor-pointer border border-black/10 hover:border-black/20 p-3 rounded-xl flex items-center justify-between spring-card transition-all relative";
+        if (tagEn) tagEn.classList.remove('hidden');
+        if (tagCn) tagCn.classList.add('hidden');
+        if (badgeHint) badgeHint.innerText = "当前已选：英文 3元起/篇";
+      } else {
+        if (radioCn) radioCn.checked = true;
+        if (lblCn) lblCn.className = "cursor-pointer border-2 border-black bg-black/[0.03] p-3 rounded-xl flex items-center justify-between spring-card shadow-sm transition-all relative";
+        if (lblEn) lblEn.className = "cursor-pointer border border-black/10 hover:border-black/20 p-3 rounded-xl flex items-center justify-between spring-card transition-all relative";
+        if (tagCn) tagCn.classList.remove('hidden');
+        if (tagEn) tagEn.classList.add('hidden');
+        if (badgeHint) badgeHint.innerText = "当前已选：中文 2元起/篇";
+      }
+      calcPrice();
+    }
+
+    function selectKwYear(val) {
+      const inputVal = document.getElementById('val-kw-year');
+      if (inputVal) inputVal.value = val;
+      const map = { '0': 'opt-y-0', '1': 'opt-y-5', '1.5': 'opt-y-3', '2': 'opt-y-1' };
+      Object.keys(map).forEach(k => {
+        const btn = document.getElementById(map[k]);
+        if (btn) {
+          if (k === val) {
+            btn.className = "px-2.5 py-1 rounded-md bg-black text-white font-bold text-[11px] cursor-pointer shadow-sm spring-tab-transition";
+          } else {
+            btn.className = "px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium text-[11px] cursor-pointer hover:bg-black/[0.08] spring-tab-transition";
+          }
+        }
+      });
+      calcPrice();
+    }
+
+    function selectKwTier(val) {
+      const inputVal = document.getElementById('val-kw-tier');
+      if (inputVal) inputVal.value = val;
+      const map = { '0': 'opt-t-0', '1': 'opt-t-sci', '1.5': 'opt-t-top' };
+      Object.keys(map).forEach(k => {
+        const btn = document.getElementById(map[k]);
+        if (btn) {
+          if (k === val) {
+            btn.className = "px-2.5 py-1 rounded-md bg-black text-white font-bold text-[11px] cursor-pointer shadow-sm spring-tab-transition";
+          } else {
+            btn.className = "px-2.5 py-1 rounded-md bg-black/[0.04] text-apple-ink font-medium text-[11px] cursor-pointer hover:bg-black/[0.08] spring-tab-transition";
+          }
+        }
+      });
+      calcPrice();
+    }
+
+    function changeDoiCount(d) {
+      doiCount = Math.max(1, doiCount + d);
+      const el = document.getElementById('txt-doi-count');
+      if (el) el.innerText = doiCount;
+      calcPrice();
+    }
+
+    function changeKwCount(d) {
+      kwCount = Math.max(1, kwCount + d);
+      const el = document.getElementById('txt-kw-count');
+      if (el) el.innerText = kwCount;
+      calcPrice();
+    }
+
+    // 核心价格计算
+    
+    // 前往第二步专属收银台 (先核对需求，进入收银台扫码付款)
+    function goToPaymentStep() {
+      const emailInput = document.getElementById('input-email');
+      const email = emailInput ? emailInput.value.trim().toLowerCase() : '';
+
+      if (!email || !email.includes('@')) {
+        alert('【请先填写交付邮箱】\n\n请在第一步输入用于接收文献 PDF 原件的真实邮箱！');
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      if (!verifiedCustomer || verifiedCustomer.email.toLowerCase() !== email) {
+        alert('【请先点击核验身份】\n\n请点击第一步中的【核验身份】按钮，确认新客免单或标准跑腿价资格！');
+        const vBtn = document.getElementById('btn-verify-identity');
+        if (vBtn) vBtn.focus();
+        return;
+      }
+
+      let content = '';
+      if (currentMode === 'doi') {
+        content = document.getElementById('input-doi-content').value.trim();
+        if (!content) {
+          alert('请填写需要代查的文献 DOI 或官方链接！');
+          document.getElementById('input-doi-content').focus();
+          return;
+        }
+      } else {
+        content = document.getElementById('input-kw-content').value.trim();
+        if (!content) {
+          alert('请填写研究方向或核心关键词！');
+          document.getElementById('input-kw-content').focus();
+          return;
+        }
+      }
+
+      const finalPrice = parseFloat(document.getElementById('txt-final-price').innerText);
+      const chkUrgent = document.getElementById('chk-urgent');
+      const isUrgent = Boolean(chkUrgent && chkUrgent.checked);
+
+      // 锁定并填充摘要
+      const sumEl = document.getElementById('txt-checkout-summary');
+      const emEl = document.getElementById('txt-checkout-email');
+      const amtEl = document.getElementById('txt-checkout-amount');
+      const urgEl = document.getElementById('badge-checkout-urgent');
+
+      if (sumEl) sumEl.innerText = content;
+      if (emEl) emEl.innerText = email;
+      if (amtEl) amtEl.innerText = finalPrice.toFixed(2);
+      if (urgEl) {
+        if (isUrgent) urgEl.classList.remove('hidden');
+        else urgEl.classList.add('hidden');
+      }
+
+      // 展开第二步收银台并平滑滚动
+      const step1Box = document.getElementById('step1-action-box');
+      const step2Box = document.getElementById('step2-checkout-box');
+      if (step1Box) step1Box.classList.add('hidden');
+      if (step2Box) {
+        step2Box.classList.remove('hidden');
+        step2Box.scrollIntoView({ behavior: 'smooth' });
+      }
+      lucide.createIcons();
+    }
+
+    // 从收银台返回第一步修改需求
+    function backToStep1() {
+      const step1Box = document.getElementById('step1-action-box');
+      const step2Box = document.getElementById('step2-checkout-box');
+      if (step2Box) step2Box.classList.add('hidden');
+      if (step1Box) step1Box.classList.remove('hidden');
+      window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+
+    function calcPrice() {
+      let unitPrice = 0;
+      let count = 1;
+      let itemTitle = '';
+
+      if (currentMode === 'doi') {
+        const isEn = (currentDoiLang === 'en');
+        unitPrice = isEn ? 2.0 : 1.0;
+        count = doiCount;
+        itemTitle = isEn ? '精准代查 (英文外文文献)' : '精准代查 (中文学术文献)';
+      } else {
+        const isEn = (currentKwLang === 'en');
+        const base = isEn ? 3.0 : 2.0;
+        const yearPlus = parseFloat(document.getElementById('val-kw-year')?.value || '0');
+        const foreignPlus = document.getElementById('chk-foreign')?.checked ? 1.5 : 0;
+        const tierPlus = parseFloat(document.getElementById('val-kw-tier')?.value || '0');
+        const limitJournalPlus = document.getElementById('chk-limit-journal')?.checked ? 1.0 : 0;
+
+        unitPrice = base + yearPlus + foreignPlus + tierPlus + limitJournalPlus;
+        count = kwCount;
+        itemTitle = isEn ? '关键词代找 (英文方向精筛)' : '关键词代找 (中文方向精筛)';
+      }
+
+      const itemSubtotal = unitPrice * count;
+
+      const chkUrgent = document.getElementById('chk-urgent');
+      const isUrgent = Boolean(chkUrgent && chkUrgent.checked);
+      const urgentFee = isUrgent ? 2.0 : 0.0;
+
+      const subtotal = itemSubtotal + urgentFee;
+      let discount = 0;
+
+      // 新客免单第 1 篇基础文献费
+      const isFreeEligible = (verifiedCustomer && verifiedCustomer.isFreeEligible === true);
+      if (isFreeEligible) {
+        discount += unitPrice;
+      }
+
+      // 邀请码额外免减 1 篇
+      if (validInviteCode) {
+        discount += unitPrice;
+      }
+
+      // 卡密抵扣金额
+      if (currentVerifiedKey && currentVerifiedKey.discount) {
+        discount += currentVerifiedKey.discount;
+      }
+
+      const finalTotal = Math.max(0, subtotal - discount);
+
+      // 更新结算展示
+      const elItemTitle = document.getElementById('txt-calc-item-title');
+      const elItemMath = document.getElementById('txt-calc-item-math');
+      const elUrgentRow = document.getElementById('box-urgent-row');
+      const elDiscountRow = document.getElementById('box-discount-row');
+      const elDiscount = document.getElementById('txt-calc-discount');
+      const elFinalPrice = document.getElementById('txt-final-price');
+
+      if (elItemTitle) elItemTitle.innerText = itemTitle;
+      if (elItemMath) elItemMath.innerText = `¥${unitPrice.toFixed(2)} × ${count}篇 = ¥${itemSubtotal.toFixed(2)}`;
+
+      if (elUrgentRow) {
+        if (isUrgent) elUrgentRow.classList.remove('hidden');
+        else elUrgentRow.classList.add('hidden');
+      }
+
+      if (elDiscountRow && elDiscount) {
+        if (discount > 0) {
+          elDiscountRow.classList.remove('hidden');
+          elDiscount.innerText = `-¥${discount.toFixed(2)}`;
+        } else {
+          elDiscountRow.classList.add('hidden');
+        }
+      }
+
+      if (elFinalPrice) elFinalPrice.innerText = finalTotal.toFixed(2);
+
+      // 联动支付区域状态
+      const boxQrChannel = document.getElementById('channel-box-qr');
+      const boxFreeAlert = document.getElementById('box-free-alert');
+      const submitBtnText = document.getElementById('txt-submit-btn');
+      const timeNotice = isUrgent ? '🚨 25分钟极速发邮箱' : '2小时内发邮箱';
+
+      // 同步更新第一步与第二步按钮
+      const gotoBtnText = document.getElementById('txt-goto-pay-btn');
+      if (gotoBtnText) {
+        if (finalTotal <= 0) {
+          gotoBtnText.innerText = `确认文献需求，前往免费出单 (¥0.00 免单)`;
+        } else {
+          gotoBtnText.innerText = `确认文献需求，前往扫码付款 (¥${finalTotal.toFixed(2)})`;
+        }
+      }
+
+      if (finalTotal <= 0) {
+        if (boxFreeAlert) boxFreeAlert.classList.remove('hidden');
+        if (boxQrChannel) boxQrChannel.classList.add('opacity-40');
+        if (submitBtnText) submitBtnText.innerText = `确认无误，系统正式生成免费工单 (${timeNotice})`;
+      } else {
+        if (boxFreeAlert) boxFreeAlert.classList.add('hidden');
+        if (boxQrChannel) boxQrChannel.classList.remove('opacity-40');
+        if (submitBtnText) {
+          if (currentPayChannel === 'card' && currentVerifiedKey) {
+            submitBtnText.innerText = `卡密已全额抵扣，系统正式生成查询工单 (${timeNotice})`;
+          } else {
+            submitBtnText.innerText = `我已扫码支付 ¥${finalTotal.toFixed(2)}，系统正式生成查询工单 (${timeNotice})`;
+          }
+        }
+      }
+    }
+
+    // 切换支付通道 (扫码 vs 卡密)
+    function switchPayChannel(channel) {
+      currentPayChannel = channel;
+      const btnQr = document.getElementById('btn-channel-qr');
+      const btnCard = document.getElementById('btn-channel-card');
+      const boxQr = document.getElementById('channel-box-qr');
+      const boxCard = document.getElementById('channel-box-card');
+
+      if (channel === 'qrcode') {
+        if (btnQr) btnQr.className = "px-3 py-1.5 rounded-lg bg-black text-white shadow-sm spring-tab-transition spring-press cursor-pointer font-bold";
+        if (btnCard) btnCard.className = "px-3 py-1.5 rounded-lg text-apple-sub hover:text-black spring-tab-transition spring-press cursor-pointer font-medium";
+        if (boxQr) boxQr.classList.remove('hidden');
+        if (boxCard) boxCard.classList.add('hidden');
+      } else {
+        if (btnCard) btnCard.className = "px-3 py-1.5 rounded-lg bg-black text-white shadow-sm spring-tab-transition spring-press cursor-pointer font-bold";
+        if (btnQr) btnQr.className = "px-3 py-1.5 rounded-lg text-apple-sub hover:text-black spring-tab-transition spring-press cursor-pointer font-medium";
+        if (boxCard) boxCard.classList.remove('hidden');
+        if (boxQr) boxQr.classList.add('hidden');
+      }
+      calcPrice();
+      lucide.createIcons();
+    }
+
+    // 切换收款码 (微信 vs 支付宝)
+    function setPayMethod(m) {
+      currentPayMethod = m;
+      const btnWx = document.getElementById('btn-pay-wx');
+      const btnAli = document.getElementById('btn-pay-ali');
+      const img = document.getElementById('img-pay-qr');
+
+      if (m === 'wechat') {
+        if (btnWx) btnWx.className = "px-2.5 py-1 rounded-md bg-black text-white shadow-sm spring-tab-transition spring-press cursor-pointer font-bold";
+        if (btnAli) btnAli.className = "px-2.5 py-1 rounded-md text-apple-sub hover:text-black spring-tab-transition spring-press cursor-pointer font-medium";
+        if (img) img.src = "assets/wechat_pay.jpg";
+      } else {
+        if (btnAli) btnAli.className = "px-2.5 py-1 rounded-md bg-black text-white shadow-sm spring-tab-transition spring-press cursor-pointer font-bold";
+        if (btnWx) btnWx.className = "px-2.5 py-1 rounded-md text-apple-sub hover:text-black spring-tab-transition spring-press cursor-pointer font-medium";
+        if (img) img.src = "assets/alipay_pay.jpg";
+      }
+    }
+
+    // 核验好友邀请码
+    function verifyInviteCode() {
+      const input = document.getElementById('input-invite-code');
+      const code = input ? input.value.trim().toUpperCase() : '';
+      const tip = document.getElementById('invite-verify-tip');
+      if (!tip) return;
+      tip.classList.remove('hidden');
+
+      if (!code || code.length !== 6) {
+        tip.innerHTML = '<span class="text-rose-600">请输入完整的 6 位好友邀请码</span>';
+        return;
+      }
+
+      validInviteCode = code;
+      tip.innerHTML = `<span class="text-emerald-700 font-bold">✓ 专属邀请码 ${code} 验证成功！已额外免减 1 篇文献</span>`;
+      calcPrice();
+    }
+
+    // 真实核验卡密 / 激活码 (杜绝任何乱打通过)
+    async function verifyLicenseKey() {
+      const input = document.getElementById('input-license-key');
+      const keyStr = input ? input.value.trim().toUpperCase() : '';
+      const badge = document.getElementById('badge-key-status');
+      const cardResult = document.getElementById('box-card-result');
+
+      if (!keyStr) {
+        alert('请输入授权卡密 / 激活码！');
+        if (input) input.focus();
+        return;
+      }
+
+      if (badge) {
+        badge.innerText = '核验中...';
+        badge.className = 'text-[10px] font-mono text-apple-sub bg-black/[0.05] px-2 py-0.5 rounded font-bold animate-pulse';
+      }
+
+      const res = await CloudService.verifyLicenseKey(keyStr);
+
+      if (res.valid) {
+        currentVerifiedKey = res;
+        if (badge) {
+          badge.innerText = '✓ 卡密核验成功';
+          badge.className = 'text-[10px] font-mono text-emerald-800 bg-emerald-500/20 px-2 py-0.5 rounded font-bold';
+        }
+        if (cardResult) {
+          cardResult.className = 'text-xs p-3 rounded-xl border border-emerald-500/30 bg-emerald-500/[0.05] text-emerald-900 space-y-1';
+          cardResult.innerHTML = `
+            <div class="font-bold">🎉 卡密 [${res.key}] 验证通过！</div>
+            <div class="text-[11px] text-emerald-800">已抵扣文献费用 ¥${res.discount.toFixed(2)}。提交工单时将直接核销此卡密。</div>
+          `;
+        }
+        calcPrice();
+      } else {
+        currentVerifiedKey = null;
+        if (badge) {
+          badge.innerText = '✕ 卡密无效';
+          badge.className = 'text-[10px] font-mono text-rose-700 bg-rose-500/15 px-2 py-0.5 rounded font-bold';
+        }
+        if (cardResult) {
+          cardResult.className = 'text-xs p-3 rounded-xl border border-rose-500/20 bg-rose-500/[0.04] text-rose-900 space-y-1';
+          cardResult.innerHTML = `
+            <div class="font-bold">✕ 验证失败</div>
+            <div class="text-[11px] text-rose-800">${res.reason}</div>
+          `;
+        }
+        calcPrice();
+      }
+    }
+
+    // 提交客户端工单 (严谨闭环：真实凭证、真实防刷、真实写入)
+    async function submitClientOrder() {
+      const emailInput = document.getElementById('input-email');
+      const email = emailInput ? emailInput.value.trim().toLowerCase() : '';
+
+      // 1. 邮箱与身份校验
+      if (!email || !email.includes('@')) {
+        alert('【请先填写有效邮箱】\n\n请在第一步输入用于接收文献的邮箱地址！');
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      if (!verifiedCustomer || verifiedCustomer.email.toLowerCase() !== email) {
+        alert('【请先点击核验身份】\n\n请先点击第一步中的【核验身份】黑色按钮，完成核验后方可提单！');
+        const verifyBtn = document.getElementById('btn-verify-identity');
+        if (verifyBtn) verifyBtn.focus();
+        return;
+      }
+
+      // 2. 需求内容校验
+      let content = '';
+      let serviceTitle = '';
+      if (currentMode === 'doi') {
+        content = document.getElementById('input-doi-content').value.trim();
+        if (!content) {
+          alert('请填写需要代查的文献 DOI 或官方链接！');
+          document.getElementById('input-doi-content').focus();
+          return;
+        }
+        const isDoiOrUrl = content.includes('10.') || content.toLowerCase().includes('http') || content.toLowerCase().includes('doi.org');
+        if (!isDoiOrUrl) {
+          alert('【精准代查只收 DOI 或官方链接】\n\n检测到您输入的不是有效的文献 DOI（如 10.1016/...）或官方论文直达链接！\n\n如果您手上只有文章题目或研究方向，请点击上方切换到【关键词代找】模式提交哦！');
+          document.getElementById('input-doi-content').focus();
+          return;
+        }
+        const isEn = (currentDoiLang === 'en');
+        serviceTitle = isEn ? '精准代查 (英文外文 DOI)' : '精准代查 (中文学术 DOI)';
+      } else {
+        content = document.getElementById('input-kw-content').value.trim();
+        if (!content) {
+          alert('请填写研究方向或核心关键词！');
+          document.getElementById('input-kw-content').focus();
+          return;
+        }
+        const isEn = (currentKwLang === 'en');
+        serviceTitle = isEn ? '关键词代找 (英文方向定制)' : '关键词代找 (中文方向定制)';
+      }
+
+      const amount = parseFloat(document.getElementById('txt-final-price').innerText);
+      const chkUrgent = document.getElementById('chk-urgent');
+      const isUrgent = Boolean(chkUrgent && chkUrgent.checked);
+
+      // 3. 付款与核销凭据检查 (杜绝空气付款)
+      let payProof = '';
+      let paymentMethod = '';
+      let payType = 'qrcode';
+      let licenseKeyUsed = null;
+
+      if (amount <= 0) {
+        // 免单或卡密全额抵扣
+        if (currentVerifiedKey) {
+          payType = 'license_key';
+          licenseKeyUsed = currentVerifiedKey.key;
+          paymentMethod = '卡密全额抵扣';
+          payProof = `卡密抵扣 [${currentVerifiedKey.key}]`;
+        } else {
+          payType = 'free_trial';
+          paymentMethod = '新客免单';
+          payProof = '新客首单免费体验';
+        }
+      } else {
+        // 需付款金额 > 0
+        if (currentPayChannel === 'card') {
+          alert(`当前卡密已抵扣部分费用，仍需支付剩余款项 ¥${amount.toFixed(2)}。请切换至【扫码支付】完成转账并填写单号尾号！`);
+          switchPayChannel('qrcode');
+          return;
+        }
+
+        const payTail = document.getElementById('input-pay-tail')?.value.trim();
+        const payName = document.getElementById('input-pay-name')?.value.trim();
+
+        if (!payTail || payTail.length < 4) {
+          alert('【请填写付款凭证】\n\n您已选择扫码支付，请在转账后填写微信/支付宝账单中的【交易单号后 4 位】！\n\n专员将凭此单号极速核对到账流水，核实后立即开展正版原件检索发货。');
+          document.getElementById('input-pay-tail')?.focus();
+          return;
+        }
+
+        payType = 'qrcode';
+        paymentMethod = (currentPayMethod === 'wechat' ? '微信支付' : '支付宝');
+        payProof = `${paymentMethod} 单号尾号 [${payTail}]` + (payName ? ` (称呼: ${payName})` : '');
+      }
+
+      // 4. 构建工单数据
+      const now = new Date();
+      const dateStr = now.toISOString().slice(0, 10).replace(/-/g, '');
+      const rand = Math.floor(1000 + Math.random() * 9000);
+      const orderId = `EXP-${dateStr}-${rand}`;
+      const timeStr = now.getFullYear() + '-' + 
+                      String(now.getMonth()+1).padStart(2, '0') + '-' + 
+                      String(now.getDate()).padStart(2, '0') + ' ' + 
+                      String(now.getHours()).padStart(2, '0') + ':' + 
+                      String(now.getMinutes()).padStart(2, '0');
+
+      const isThisOrderFreeUsed = (amount === 0 && !currentVerifiedKey && !validInviteCode);
+      const wechat = document.getElementById('input-wechat').value.trim() || '未填';
+
+      const newOrder = {
+        id: orderId,
+        createdAt: timeStr,
+        serviceType: serviceTitle + (isUrgent ? ' 【🚨25min极速加急】' : ''),
+        content: content,
+        email: email,
+        wechat: wechat,
+        amount: amount,
+        paymentMethod: paymentMethod,
+        payerName: payProof,
+        payProof: payProof,
+        payType: payType,
+        licenseKeyUsed: licenseKeyUsed,
+        financeStatus: amount > 0 ? '待财务核对' : '免单已核准',
+        status: '待处理',
+        isUrgent: isUrgent,
+        isFreeUsed: isThisOrderFreeUsed,
+        inviteCodeUsed: validInviteCode || null
+      };
+
+      // 5. 提交至云端与本地
+      const loadingTip = document.getElementById('submit-loading-tip');
+      if (loadingTip) loadingTip.classList.remove('hidden');
+
+      try {
+        await CloudService.createOrder(newOrder);
+
+        // 若使用了卡密，云端原子核销
+        if (currentVerifiedKey) {
+          await CloudService.consumeLicenseKey(currentVerifiedKey.key, email, orderId);
+          currentVerifiedKey = null;
+        }
+
+        // 若使用了首单免费，记录已用防刷
+        if (isThisOrderFreeUsed) {
+          localStorage.setItem(FREE_USED_DEVICE_KEY, 'true');
+          const usedEmails = JSON.parse(localStorage.getItem(FREE_USED_EMAILS_KEY) || '[]');
+          if (!usedEmails.includes(email)) {
+            usedEmails.push(email);
+            localStorage.setItem(FREE_USED_EMAILS_KEY, JSON.stringify(usedEmails));
+          }
+          if (verifiedCustomer) verifiedCustomer.isFreeEligible = false;
+        }
+
+        // 辅助推送站长工作邮箱
+        notifyAdminViaMail(newOrder);
+
+        // 弹出工单确认收据
+        showOrderReceiptModal(newOrder);
+
+        // 自动将单号同步至下方自查框，并自动拉取显示最新状态
+        const qInput = document.getElementById('query-email-input');
+        if (qInput) {
+          qInput.value = newOrder.id;
+          queryOrderStatus();
+        }
+
+        // 重置收银台，返回第一步就绪状态
+        backToStep1();
+
+        // 清空输入框
+        if (currentMode === 'doi') {
+          document.getElementById('input-doi-content').value = '';
+        } else {
+          document.getElementById('input-kw-content').value = '';
+        }
+        const tailInput = document.getElementById('input-pay-tail');
+        if (tailInput) tailInput.value = '';
+        const nameInput = document.getElementById('input-pay-name');
+        if (nameInput) nameInput.value = '';
+        const keyInput = document.getElementById('input-license-key');
+        if (keyInput) keyInput.value = '';
+
+        verifyCustomerIdentity();
+      } catch (err) {
+        alert('提单遇到异常: ' + err.message);
+      } finally {
+        if (loadingTip) loadingTip.classList.add('hidden');
+      }
+    }
+
+    // 弹出工单收据弹窗
+    function showOrderReceiptModal(order) {
+      document.getElementById('receipt-order-id').innerText = order.id;
+      document.getElementById('receipt-email').innerText = order.email;
+      document.getElementById('receipt-amount').innerText = `¥${order.amount.toFixed(2)}`;
+      
+      const proofEl = document.getElementById('receipt-pay-proof');
+      if (proofEl) proofEl.innerText = order.payProof;
+
+      document.getElementById('modal-receipt').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('modal-receipt').classList.add('hidden');
+    }
+
+    function copyReceiptMemo() {
+      const id = document.getElementById('receipt-order-id')?.innerText || '';
+      const em = document.getElementById('receipt-email')?.innerText || '';
+      const amt = document.getElementById('receipt-amount')?.innerText || '';
+      const proof = document.getElementById('receipt-pay-proof')?.innerText || '';
+      copyText(`【文献代查工单备忘】\n单号：${id}\n交付邮箱：${em}\n实付金额：${amt}\n核账流水：${proof}\n服务承诺：专员正在高校官方全权限库检索，100% 官方正版超清 PDF 原件将在 2 小时内直接发送到您的邮箱附件。`);
+      alert('工单单号与交付备忘已成功复制！');
+    }
+
+    // 客户自查进度 (直连云端最新状态)
+    async function queryOrderStatus() {
+      const q = document.getElementById('query-email-input').value.trim();
+      const box = document.getElementById('query-result-box');
+      if (!q) {
+        alert('请输入提单时的邮箱或工单单号！');
+        return;
+      }
+
+      box.classList.remove('hidden');
+      box.innerHTML = `<div class="p-4 text-center text-xs text-apple-sub flex items-center justify-center space-x-2"><span class="w-3.5 h-3.5 border-2 border-black border-t-transparent rounded-full animate-spin"></span><span>正在连接云端查询最新工单状态...</span></div>`;
+
+      const matched = await CloudService.queryOrders(q);
+
+      if (matched.length === 0) {
+        box.innerHTML = `<div class="p-4 bg-black/[0.02] border border-black/10 rounded-xl text-center text-xs text-apple-sub">未找到与【${q}】相关的工单，请检查邮箱拼写或稍后重试。</div>`;
+      } else {
+        let html = '';
+        matched.forEach(o => {
+          let badgeClass = 'bg-amber-500/10 text-amber-900 border border-amber-300';
+          let statusText = o.status || '待处理';
+          const isUrgent = o.isUrgent;
+          
+          let deliverNotice = isUrgent ? 
+            `🚨 <span class="font-bold text-rose-600">25分钟极速加急处理中</span>：专员已优先接入高校外文文献库，承诺 25 分钟内正版原件直接发送至您的邮箱：<span class="font-mono font-bold text-apple-ink">${o.email}</span>！` :
+            `专员正在海外高校全权限官方库检索，100% 正版超清原件 PDF 将于 2 小时内直接作为附件发送至您的邮箱：<span class="font-mono font-bold text-apple-ink">${o.email}</span>`;
+
+          if (o.status === '已发货') {
+            badgeClass = 'bg-emerald-500/15 text-emerald-800 border border-emerald-300';
+            statusText = '已发货至邮箱';
+            deliverNotice = `✓ 100% 官方正版超清原件 PDF 已成功发送至您的邮箱：<span class="font-mono font-bold text-apple-ink">${o.email}</span>，请登录邮箱查收附件（如未收到可检查垃圾箱或联系微信专员）。`;
+          } else if (o.status === '检索中') {
+            badgeClass = 'bg-sky-500/15 text-sky-800 border border-sky-300';
+            statusText = '款项已核实 · 检索下载中';
+          }
+
+          html += `
+            <div class="p-4 bg-black/[0.02] border border-black/10 rounded-2xl text-xs space-y-2.5">
+              <div class="flex justify-between items-center">
+                <span class="font-mono font-bold text-apple-ink text-sm">${o.id}</span>
+                <span class="px-2.5 py-0.5 rounded-full font-bold text-[11px] ${badgeClass}">${statusText}</span>
+              </div>
+              <div class="text-apple-sub leading-relaxed"><span class="text-black/40 font-semibold">需求：</span>${o.content}</div>
+              <div class="p-3 bg-white rounded-xl border border-black/[0.06] text-[11px] text-apple-sub leading-relaxed">
+                ${deliverNotice}
+              </div>
+              <div class="text-[11px] text-apple-sub pt-2 border-t border-black/[0.04] flex items-center justify-between">
+                <span>实付金额：¥${Number(o.amount).toFixed(2)} (${o.payerName || '已付款'})</span>
+                <span class="font-mono text-[10px] text-apple-sub">${o.createdAt}</span>
+              </div>
+            </div>
+          `;
+        });
+        box.innerHTML = html;
+        lucide.createIcons();
+      }
+    }
+
+    // 发送邮件通知站长 Gmail (ChinAReferenceHelper@gmail.com)
+    function notifyAdminViaMail(order) {
+      try {
+        localStorage.setItem('latest_order_ping', JSON.stringify({
+          time: Date.now(),
+          orderId: order.id,
+          email: order.email,
+          content: order.content,
+          payer: order.payerName,
+          amount: order.amount
+        }));
+      } catch (e) {}
+
+      const urgentSubject = order.isUrgent ? '【🚨25MIN加急!速查】' : '';
+      const mailData = {
+        _subject: `${urgentSubject}【新文献代查工单】单号:${order.id} | 实付:¥${order.amount} | 付款流水:${order.payerName}`,
+        加急状态: order.isUrgent ? '🚨 25分钟内必须发至邮箱！超时不收钱全额退款！' : '常规订单 (2小时内发邮箱)',
+        工单单号: order.id,
+        服务类型: order.serviceType,
+        文献需求: order.content,
+        买家邮箱: order.email,
+        微信手机: order.wechat,
+        实付金额: `¥${order.amount.toFixed(2)}`,
+        付款核账凭证: order.payerName,
+        到账审核建议: order.amount > 0 ? '请专员核对微信/支付宝转账流水后4位' : '免单已核准',
+        提单时间: order.createdAt
+      };
+
+      fetch('https://formsubmit.co/ajax/chinareferencehelper@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(mailData)
+      }).catch(() => {});
+    }
+
+    function scrollToTrack() {
+      const el = document.getElementById('section-track');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openShareModal() {
+      document.getElementById('modal-share').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeShareModal() {
+      document.getElementById('modal-share').classList.add('hidden');
+    }
+
+    function openContactModal() {
+      document.getElementById('modal-contact').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeContactModal() {
+      document.getElementById('modal-contact').classList.add('hidden');
+    }
+
+    function generateMyInviteCode() {
+      const email = document.getElementById('input-my-share-email').value.trim();
+      if (!email || !email.includes('@')) {
+        alert('请输入您的有效高校或常用邮箱！');
+        return;
+      }
+
+      let code = 'EXP' + Math.floor(100 + Math.random() * 900);
+      const invites = JSON.parse(localStorage.getItem(INVITE_STORAGE_KEY) || '{}');
+      if (!invites[code]) {
+        invites[code] = { ownerEmail: email, earnedCredits: 0, createdAt: new Date().toLocaleDateString() };
+        localStorage.setItem(INVITE_STORAGE_KEY, JSON.stringify(invites));
+      }
+
+      document.getElementById('txt-generated-code').innerText = code;
+      document.getElementById('share-code-box').classList.remove('hidden');
+    }
+
+    function copyInviteShareText() {
+      const code = document.getElementById('txt-generated-code').innerText;
+      const text = `同学，这个外文文献人工代查很靠谱，100% 官方正版超清 PDF 原件，2 小时内发邮箱！\n输入我的邀请码【${code}】首篇直接免费试用：${window.location.href}`;
+      copyText(text);
+      alert('推荐文案已复制！快发给班级群或舍友吧！');
+    }
+
+    function copyText(txt) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(txt);
+      } else {
+        const t = document.createElement("textarea");
+        t.value = txt;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+      }
+    }
+</script>
+</body>
+</html>
