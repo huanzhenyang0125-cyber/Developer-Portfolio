@@ -1,51 +1,42 @@
-# 个人工程与产品研发作品集 (Engineering & Product Portfolio)
+# 宦震洋 Ryan Huan
 
-本仓库收录了作者近期独立研发与主导的 4 款高品质工程与 Web 产品项目，涵盖金融科技、科研自动化服务、企业级工业门户及移动健康操作系统。全部项目已部署至 **Cloudflare 全球边缘网络** 与 **GitHub Pages**，提供极速永久在线体验。
+金融科技本科在读，求职方向为 **AI 应用产品实习 / Vibe Coding**。借助 Codex、Claude 等工具，将业务需求整理为页面、数据字段与操作规则，再完成交互原型和运行核验。
 
----
+[作品集主页](https://huanzhenyang0125-cyber.github.io/Developer-Portfolio/) · [求职简历](https://huanzhenyang0125-cyber.github.io/Developer-Portfolio/portfolio-assets/resume.pdf) · [招聘联系](mailto:huanzhenyang0125@gmail.com)
 
-## 🌐 线上体验矩阵 (Live Cloudflare Deployments)
+## 岗位匹配优势
 
-| 序号 | 项目名称 | 定位与核心领域 | 架构与技术栈 | 🚀 Cloudflare 线上直达 |
-| :---: | :--- | :--- | :--- | :---: |
-| **01** | **极简财富 Pro (Wealth Pro)** | Apple 风格个人私行资产管理与财务 AI 诊断终端 | Canvas API, Apple HIG, NLP 记账, 离线架构 | [👉 点击进入体验](https://wealth-pro-ehw.pages.dev) |
-| **02** | **学术文献智能代查系统** | 双站物理隔离的高校科研文献代查与工单核销平台 | TailwindCSS, 动态阶梯计价引擎, 扫码核销闭环 | [👉 客户站](https://academic-express.pages.dev) · [后台](https://academic-express.pages.dev/admin.html) |
-| **03** | **奥尼斯工具工业门户 (Honest Tools)** | 现代高对比度工业产品图册与外贸询价系统 | Next.js, 工业设计系统, 国际化选品矩阵 | [👉 点击进入体验](https://honest-tools.pages.dev) |
-| **04** | **WHIP · 个人健康 OS (PWA)** | 本地优先、离线可用的现代个人健康管理操作系统 | React + TypeScript + Vite, IndexedDB, PWA 架构 | [👉 点击进入体验](https://whip-health.pages.dev) |
+- **金融与财务业务理解**：主修 Financial Technology，辅修 Business Analytics 与 Banking and Financial Management；有商业会计、会计信息系统课程及企业成本费用核对实践。
+- **需求到 AI 指令的转化**：围绕角色、字段、计算规则和验收步骤拆解任务，使用自然语言与 AI 编程工具协作，按运行反馈迭代。
+- **可运行项目交付**：四个项目覆盖个人财务、健康记录、工业选品和文献服务；保留在线入口与两篇深度案例。
+- **核验与学习习惯**：自学 Python 等工具，关注数据口径、保存逻辑及边界状态；区分演示数据、既有测试和未实测结论。
 
-* 🏛️ **全景作品集主页 (GitHub Pages)**：[https://huanzhenyang0125-cyber.github.io/Developer-Portfolio/](https://huanzhenyang0125-cyber.github.io/Developer-Portfolio/)
+## 深度案例
 
----
+| 项目 | 复盘重点 | 查看 |
+| --- | --- | --- |
+| 极简财富 Pro | 财务信息层级、Canvas 圆环几何与命中判断、localStorage 的取舍 | [深度案例](https://huanzhenyang0125-cyber.github.io/Developer-Portfolio/case-studies/wealth-pro.html) · [运行原型](https://wealth-pro-ehw.pages.dev) |
+| WHIP 个人健康 OS | 空白状态、SVG 进度、IndexedDB 事务、PWA 与恢复边界 | [深度案例](https://huanzhenyang0125-cyber.github.io/Developer-Portfolio/case-studies/whip.html) · [体验应用](https://whip-health.pages.dev) |
 
-## 🌟 核心项目详解 (Project Spotlights)
+## 其他项目
 
-### 01. 极简财富 Pro · Apple 私行资产管理终端 —— [https://wealth-pro-ehw.pages.dev](https://wealth-pro-ehw.pages.dev)
-- **设计美学**：100% 遵循 Apple HIG 人机交互规范，浅色纯净留白与高清晰对比度排版，彻底消除 AI 模板感。
-- **动态圆盘**：Canvas 原生渲染的交互式双环盈亏（P&L）图表，实时计算资产配置占比与损益浮动。
-- **智能化**：集成自然语言记账（NLP Ledger）、多币种汇率实时折算、iMessage 对话式 AI 财务顾问。
+| 项目 | 业务任务 | 查看 |
+| --- | --- | --- |
+| 奥尼斯工具工业门户 | 按材料和规格组织产品选型，衔接意向清单与询价 | [在线项目](https://honest-tools.pages.dev) |
+| 学术文献代查系统 | DOI / 关键词提交、动态计价与客户 / 管理双端流程 | [客户前台](https://academic-express.pages.dev) · [管理端](https://academic-express.pages.dev/admin.html) |
 
-### 02. Academic Express 学术文献智能代查跑腿系统 —— [https://academic-express.pages.dev](https://academic-express.pages.dev)
-- **双站物理隔离**：客户前台与站长管理后台物理级别隔离，保障商业核心与操作安全。
-- **动态阶梯计价**：根据文献语种、年份跨度、DOI 及顶刊级别（SCI 1区/外国作者/核心刊物）自动算价。
-- **商业闭环**：扫码支付、动态 API Key 激活码核验与 25 分钟加急履约防逃单闭环。
+## 实现与验证范围
 
-### 03. Honest Tools 奥尼斯工业产品展示与询价门户 —— [https://honest-tools.pages.dev](https://honest-tools.pages.dev)
-- **现代工业精工视觉**：纯黑高对比度数字与文字排版（Cobalt Blue 与 Tungsten Amber 点缀），强光下清晰可读。
-- **20 核心系列产品矩阵**：支持多规格参数筛选、通栏交互卡片展开与丝滑切换。
-- **外贸级系统**：涵盖数十个国家与地区选品参考，集成动态意向购物车与即时询价清单。
+项目以个人实践和 AI 辅助开发为主。财富 Pro 是 HTML / JavaScript 交互原型，账户状态使用 localStorage；WHIP 使用 React / TypeScript、Dexie / IndexedDB 与 PWA 配置。
 
-### 04. WHIP · 个人健康 OS (PWA) —— [https://whip-health.pages.dev](https://whip-health.pages.dev)
-- **PWA 原生体验**：内置完整 Web App Manifest 与 Service Worker，支持 iOS/Android 添加至主屏幕全屏秒开，完全支持离线使用。
-- **全方位健康追踪**：五大核心模块（今日、饮食、运动、趋势、我的），覆盖饮食配方、运动训练负重、睡眠与习惯打卡。
-- **Local-First 隐私架构**：基于 IndexedDB 本地存储，不依赖第三方云端或付费 API，100% 守护用户个人健康隐私。
+财务金额、曲线和案例交互使用演示或合成数据，不代表真实投资业绩。WHIP 案例中的既有测试结果标注了记录日期，并区分本轮核对与待实测事项；不将本地保存表述为加密或自动跨设备同步。
 
----
+## 本地查看
 
-## 🎯 简历亮点总结 (Resume Highlights)
+在仓库根目录启动静态服务器后打开首页：
 
-1. **工业级产品设计与交互规范（Apple HIG & PWA）**
-   - 深入理解并实践了现代科技大厂的设计哲学与交互规范，熟练实现 PWA 离线存储与跨平台运行。
-2. **端到端商业与系统工程闭环**
-   - 具备从商业需求梳理、阶梯估价算法、防逃单核验机制到后台管理的全链路软件工程交付能力。
-3. **扎实的前端底层规范与性能调优**
-   - 兼具 Single-File 极简离线架构与现代工程化 Monorepo/Vite/React 开发能力，注重本地隐私安全。
+```bash
+python3 -m http.server 8000
+```
+
+首页为 `index.html`，深度案例位于 `case-studies/`，作品集样式、脚本和简历位于 `portfolio-assets/`。
